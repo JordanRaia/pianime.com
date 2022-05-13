@@ -1,0 +1,74 @@
+/* div { border:1px solid green;} */
+
+.header {
+    height: 61px;
+    display: flex;
+    align-items: center;
+    background-color: #333;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+/* Navigation */
+.header__nav {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.header__link {
+    text-decoration: none;
+}
+
+.header__option {
+    display: flex;
+    flex-direction: column;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 17px;
+    padding-bottom: 17px;
+}
+
+.header__option:hover {
+    background-color: #111;
+}
+
+.header__optionActive {
+    display: flex;
+    flex-direction: column;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 17px;
+    padding-bottom: 17px;
+    background-color: #04aa6d;
+}
+
+.header__optionText {
+    font-size: 18px;
+    font-family: "Anton", sans-serif;
+    color: white;
+    text-transform: uppercase;
+}
+
+/* Search Bar */
+.header__search {
+    display: flex;
+    flex: 1;
+    align-items: center;
+    border-radius: 24px;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.header__searchInput {
+    height: 12px;
+    padding: 10px;
+    border: none;
+    width: 100%;
+}
+
+.header__searchIcon {
+    padding: 5px;
+    height: 22px !important;
+    background-color: white;
+}
