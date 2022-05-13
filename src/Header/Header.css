@@ -20,27 +20,22 @@
     text-decoration: none;
 }
 
-.header__option {
+.header__option, .header__optionActive {
     display: flex;
     flex-direction: column;
     padding-left: 10px;
     padding-right: 10px;
     padding-top: 17px;
     padding-bottom: 17px;
+
+}
+
+.header__optionActive {
+    background-color: #04aa6d;
 }
 
 .header__option:hover {
     background-color: #111;
-}
-
-.header__optionActive {
-    display: flex;
-    flex-direction: column;
-    padding-left: 10px;
-    padding-right: 10px;
-    padding-top: 17px;
-    padding-bottom: 17px;
-    background-color: #04aa6d;
 }
 
 .header__optionText {
@@ -48,6 +43,31 @@
     font-family: "Anton", sans-serif;
     color: white;
     text-transform: uppercase;
+}
+
+@media (max-width: 768px) {
+    /* Navigation */
+    .header__nav, .header__navOnClick {
+        transform: translateX(100%);
+        justify-content:flex-start;
+        flex-flow: column nowrap;
+        background-color: #333;
+        position: fixed;
+        top: 0;
+        right: 0;
+        height: 100vh;
+        width: 150px;
+        padding-top: 61px;
+        transition: transform 0.3s ease-in-out;
+    }
+
+    .header__navOnClick {
+        transform: translateX(0);
+    }
+
+    .header__option {
+        padding: 10px;
+    }
 }
 
 /* Search Bar */
@@ -71,4 +91,49 @@
     padding: 5px;
     height: 22px !important;
     background-color: white;
+}
+
+/* Hamburger */
+.header__hamburger, .header__hamburgerOnClick {
+    margin: 10px;
+    width: 30px;
+    height: 40px;
+    justify-content: space-evenly;
+    flex-flow: column nowrap;
+    z-index: 20;
+    display: none;
+}
+
+@media (max-width: 768px) {
+    .header__hamburger, .header__hamburgerOnClick {
+        display: flex;
+    }
+}
+
+.header__hamburger > div, .header__hamburgerOnClick > div {
+    width: 30px;
+    height: 5px;
+    background-color: white;
+    border-radius: 10px;
+    transform-origin: 1px;
+    transition: all 0.3s linear;
+}
+
+.header__hamburgerOnClick > div {
+    background-color: lightgray;
+}
+
+.header__hamburgerOnClick > div:nth-child(1) {
+    transform: rotate(45deg);
+    width: 33px;
+}
+
+.header__hamburgerOnClick > div:nth-child(2) {
+    transform: translateX(100);
+    opacity: 0;
+}
+
+.header__hamburgerOnClick > div:nth-child(3) {
+    transform: rotate(-45deg);
+    width: 33px;
 }

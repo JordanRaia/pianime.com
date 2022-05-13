@@ -2,6 +2,7 @@ import React from "react";
 import "./Header.css";
 import { Link } from "react-router-dom";
 import SearchIcon from "@mui/icons-material/Search";
+import Hamburger from "./Hamburger";
 
 function Header({ a }) {
     var headerOption = [
@@ -12,8 +13,6 @@ function Header({ a }) {
         "header__option",
         "header__option"
     ];
-
-    //headerOption(5).fill("header__option");
 
     switch (a) {
         case "home":
@@ -42,46 +41,15 @@ function Header({ a }) {
                 rel="stylesheet"
                 href="https://fonts.googleapis.com/css?family=Anton"
             />
-            <div className="header__nav">
-                <Link className="header__link" to="/">
-                    <div className={headerOption[0]}>
-                        <div className="header__optionText">Home</div>
-                    </div>
-                </Link>
-                <Link className="header__link" to="/">
-                    <div className={headerOption[1]}>
-                        <div className="header__optionText">Scores</div>
-                    </div>
-                </Link>
-                <Link className="header__link" to="/">
-                    <div className={headerOption[2]}>
-                        <div className="header__optionText">Song Requests</div>
-                    </div>
-                </Link>
-                <Link className="header__link" to="/">
-                    <div className={headerOption[3]}>
-                        <div className="header__optionText">Beat Saber</div>
-                    </div>
-                </Link>
-                <Link className="header__link" to="/">
-                    <div className={headerOption[4]}>
-                        <div className="header__optionText">Contact</div>
-                    </div>
-                </Link>
-                <Link className="header__link" to="/">
-                    <div className={headerOption[5]}>
-                        <div className="header__optionText">Donate</div>
-                    </div>
-                </Link>
-            </div>
             <div className="header__search">
                 <input
                     type="text"
                     className="header__searchInput"
-                    placeholder="Search for Song Name or Anime Title"
+                    placeholder="Search for Song Title or Anime Series"
                 />
                 <SearchIcon className="header__searchIcon" />
             </div>
+            <Hamburger headerOption={headerOption}/>
         </div>
     );
 }
