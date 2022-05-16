@@ -7,16 +7,18 @@ function Hamburger({ headerOption }) {
 
     return (
         <>
-            <div
-                open={open}
-                onClick={() => setOpen(!open)}
-                className={
-                    !open ? "header__hamburger" : "header__hamburgerOnClick"
-                }
-            >
-                <div />
-                <div />
-                <div />
+            <div className="header__right">
+                <div
+                    open={open}
+                    onClick={() => setOpen(!open)}
+                    className={
+                        !open ? "header__hamburger" : "header__hamburgerOnClick"
+                    }
+                >
+                    <div />
+                    <div />
+                    <div />
+                </div>
             </div>
             <RightHeader headerOption={headerOption} open={open} />
         </>

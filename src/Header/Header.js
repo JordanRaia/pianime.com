@@ -41,15 +41,17 @@ function Header({ a }) {
                 rel="stylesheet"
                 href="https://fonts.googleapis.com/css?family=Anton"
             />
-            <div className="header__search">
+            {/* <div className="header__search">
                 <input
                     type="text"
                     className="header__searchInput"
                     placeholder="Search for Song Title or Anime Series"
                 />
                 <SearchIcon className="header__searchIcon" />
+            </div> */}
+            <div className="header__center">
+                <Hamburger headerOption={headerOption}/>
             </div>
-            <Hamburger headerOption={headerOption}/>
         </div>
     );
 }

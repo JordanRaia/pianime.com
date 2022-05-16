@@ -19,6 +19,7 @@
 .env.production.local
 
 .prettierrc
+/src/Upload
 
 npm-debug.log*
 yarn-debug.log*
