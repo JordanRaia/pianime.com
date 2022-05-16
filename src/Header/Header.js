@@ -1,17 +1,30 @@
-import React from "react";
+import React, { useState } from "react";
 import "./Header.css";
 import { Link } from "react-router-dom";
-import SearchIcon from "@mui/icons-material/Search";
+// import SearchIcon from "@mui/icons-material/Search";
 import Hamburger from "./Hamburger";
+import logo from "../img/logo.png";
 
 function Header({ a }) {
+    const [colorChange, setColorchange] = useState(false);
+
+    const changeNavbarColor = () => {
+        if (window.scrollY >= 80) {
+            setColorchange(true);
+        } else {
+            setColorchange(false);
+        }
+    };
+
+    window.addEventListener('scroll', changeNavbarColor);
+
     var headerOption = [
         "header__option",
         "header__option",
         "header__option",
         "header__option",
         "header__option",
-        "header__option"
+        "header__option",
     ];
 
     switch (a) {
@@ -36,21 +49,23 @@ function Header({ a }) {
     }
 
     return (
-        <div className="header">
-            <link
-                rel="stylesheet"
-                href="https://fonts.googleapis.com/css?family=Anton"
-            />
-            {/* <div className="header__search">
-                <input
-                    type="text"
-                    className="header__searchInput"
-                    placeholder="Search for Song Title or Anime Series"
+        <div className={colorChange ? "header__background" : "header"}>
+            <div className="header__container">
+                <link
+                    rel="stylesheet"
+                    href="https://fonts.googleapis.com/css?family=Anton"
                 />
-                <SearchIcon className="header__searchIcon" />
-            </div> */}
-            <div className="header__center">
-                <Hamburger headerOption={headerOption}/>
+                <Link to={"/"}>
+                    <img className="header__logo" src={logo} />
+                </Link>
+                <div className="header__center">
+                    <Hamburger headerOption={headerOption} />
+                </div>
+                <Link className="header__link" to="/">
+                    <div className="header__optionDonate">
+                        <div className="header__optionText">Donate</div>
+                    </div>
+                </Link>
             </div>
         </div>
     );

@@ -1,0 +1,18 @@
+.home {
+    max-width: 1280px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.home__header {
+    text-align: center;
+    font-family: 'Dosis', sans-serif;
+    color: white;
+    font-size: 4vw;
+}
+
+@media (max-width: 768px) {
+    .home__header {
+        font-size: 6vw;
+    }
+}

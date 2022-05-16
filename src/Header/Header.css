@@ -1,11 +1,48 @@
-.header {
+.header, .header__background, .header__backgroundAnimation {
+    height: 61px;
+    position: sticky;
+    z-index: 100;
+}
+
+@media (max-width: 768px) {
+    .header {
+        top: 0;
+        background-color: #333;
+    }
+}
+
+.header__background {
+    background-color: #333;
+    top: 0;
+}
+
+@media (min-width: 768px) {
+    .header__background {
+        animation: growDown 400ms ease-in-out;
+        transform-origin: top center;
+    }
+}
+
+@keyframes growDown {
+    0% {
+        transform: scaleY(0)
+    }
+    80% {
+        transform: scaleY(1.1)
+    }
+    100% {
+        transform: scaleY(1)
+    }
+}
+
+.header__container {
     height: 61px;
     display: flex;
     align-items: center;
-    background-color: #333;
-    position: sticky;
     top: 0;
-    z-index: 100;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 1280px;
 }
 
 /* Navigation */
@@ -18,21 +55,42 @@
     text-decoration: none;
 }
 
-.header__option, .header__optionActive {
+.header__option, .header__optionActive, .header__optionDonate {
     display: flex;
     flex-direction: column;
     padding-left: 10px;
     padding-right: 10px;
-    padding-top: 17px;
-    padding-bottom: 17px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    border-radius: 10px;
+    margin-left: 5px;
+}
 
+@media (min-width: 768px) {
+    .header__invisibleOnDesktop
+    {
+        display: none;
+    }
+}
+
+.header__optionDonate {
+    background-color: #FF4533;
+    padding-left: 30px;
+    padding-right: 30px;
+    margin-right: 10px;
+}
+
+@media (max-width: 768px) {
+    .header__optionDonate {
+        display: none;
+    }
 }
 
 .header__optionActive {
     background-color: #04aa6d;
 }
 
-.header__option:hover {
+.header__option:hover, .header__optionDonate:hover{
     background-color: #111;
 }
 
@@ -57,6 +115,7 @@
 @media (max-width: 768px) {
     /* Navigation */
     .header__nav, .header__navOnClick {
+        z-index: -1;
         transform: translateX(100%);
         justify-content:flex-start;
         flex-flow: column nowrap;
@@ -66,7 +125,7 @@
         right: 0;
         height: 100vh;
         width: 150px;
-        margin-top: 61px;
+        padding-top: 61px;
         transition: transform 0.3s ease-in-out;
     }
 
@@ -145,4 +204,10 @@
 .header__hamburgerOnClick > div:nth-child(3) {
     transform: rotate(-45deg);
     width: 33px;
+}
+
+/* logo */
+.header__logo {
+    width: 100px;
+    margin-left: 10px;
 }

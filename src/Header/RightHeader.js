@@ -30,11 +30,13 @@ function RightHeader({ headerOption, open }) {
                     <div className="header__optionText">Contact</div>
                 </div>
             </Link>
-            <Link className="header__link" to="/">
-                <div className={headerOption[5]}>
-                    <div className="header__optionText">Donate</div>
-                </div>
-            </Link>
+            <div className="header__invisibleOnDesktop">
+                <Link className="header__link" to="/">
+                    <div className={headerOption[5]}>
+                        <div className="header__optionText">Donate</div>
+                    </div>
+                </Link>
+            </div>
         </div>
     );
 }

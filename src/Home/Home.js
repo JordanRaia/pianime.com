@@ -1,10 +1,18 @@
-import React from 'react'
-import './Home.css'
+import React from "react";
+import Background from "../Background/Background";
+import "./Home.css";
+import Title from "./Title";
 
 function Home() {
-  return (
-    <div className='home'>Home</div>
-  )
+    return (
+        <>
+            <Background />
+            <div className="home">
+                <Title title="Pianime" subtitle="Anime Piano Arrangements" />
+                <div className="home__header">Most Recent Arrangement</div>
+            </div>
+        </>
+    );
 }
 
-export default Home
+export default Home;

@@ -10,10 +10,8 @@ function App() {
         <Router>
             <div className="app">
                 <Routes>
-                    <Route path="/" element={[<Header a="home" />, <Home />]} />
-                </Routes>
-                <Routes>
                     <Route path="/Upload" element={[<Header />, <Upload />]} />
+                    <Route path="/" element={[<Header a="home" />, <Home />]} />
                 </Routes>
             </div>
         </Router>
