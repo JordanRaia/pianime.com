@@ -45,6 +45,18 @@
     max-width: 1280px;
 }
 
+@media (max-width: 1280px) {
+    .header__container {
+        max-width: 1000px;
+    }
+}
+
+@media (max-width: 1000px) {
+    .header__container {
+        max-width: 768px;
+    }
+}
+
 /* Navigation */
 .header__nav {
     display: flex;
@@ -95,7 +107,7 @@
 }
 
 .header__optionText {
-    font-size: 18px;
+    font-size: 1.125rem;
     font-family: "Anton", sans-serif;
     color: white;
     text-transform: uppercase;

@@ -4,6 +4,18 @@
     margin-right: auto;
 }
 
+@media (max-width: 1280px) {
+    .home {
+        max-width: 1000px;
+    }
+}
+
+@media (max-width: 1000px) {
+    .home {
+        max-width: 768px;
+    }
+}
+
 .home__header {
     text-align: center;
     font-family: 'Dosis', sans-serif;

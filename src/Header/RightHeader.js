@@ -10,7 +10,7 @@ function RightHeader({ headerOption, open }) {
                     <div className="header__optionText">Home</div>
                 </div>
             </Link>
-            <Link className="header__link" to="/">
+            <Link className="header__link" to="/Scores">
                 <div className={headerOption[1]}>
                     <div className="header__optionText">Scores</div>
                 </div>

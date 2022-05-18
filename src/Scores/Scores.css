@@ -1,0 +1,17 @@
+.scores {
+    max-width: 1280px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+@media (max-width: 1280px) {
+    .scores {
+        max-width: 1000px;
+    }
+}
+
+@media (max-width: 1000px) {
+    .scores {
+        max-width: 768px;
+    }
+}
