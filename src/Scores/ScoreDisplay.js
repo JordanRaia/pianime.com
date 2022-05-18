@@ -90,6 +90,11 @@ export class RealtimeData extends React.Component {
                     let pdfSize = formatBytes(row.data.pdfSize);
                     let midiSize = formatBytes(row.data.midiSize);
 
+                    let midiExists = false;
+                    if (row.data.midi !== "") {
+                        midiExists = true;
+                    }
+
                     return (
                         <>
                             <link
@@ -246,25 +251,31 @@ export class RealtimeData extends React.Component {
                                                             </span>
                                                         </a>
                                                     </li>
-                                                    <li>
-                                                        <a
-                                                            className="score__downloadFlexBox"
-                                                            id="midiDownload"
-                                                            download
-                                                        >
-                                                            <img
-                                                                className="score__downloadIcon"
-                                                                src={MidiIcon}
-                                                                alt="Adobe PDF Icon"
-                                                            />
-                                                            <div className="score__download">
-                                                                {midiPath}
-                                                            </div>
-                                                            <span className="score__downloadSize">
-                                                                ({midiSize})
-                                                            </span>
-                                                        </a>
-                                                    </li>
+                                                    {midiExists ? (
+                                                        <li>
+                                                            <a
+                                                                className="score__downloadFlexBox"
+                                                                id="midiDownload"
+                                                                download
+                                                            >
+                                                                <img
+                                                                    className="score__downloadIcon"
+                                                                    src={
+                                                                        MidiIcon
+                                                                    }
+                                                                    alt="Adobe PDF Icon"
+                                                                />
+                                                                <div className="score__download">
+                                                                    {midiPath}
+                                                                </div>
+                                                                <span className="score__downloadSize">
+                                                                    ({midiSize})
+                                                                </span>
+                                                            </a>
+                                                        </li>
+                                                    ) : (
+                                                        ""
+                                                    )}
                                                 </ul>
                                             </div>
                                         </div>

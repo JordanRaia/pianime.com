@@ -5,7 +5,7 @@ import "./Scores.css";
 function Scores() {
     return (
         <div className="scores">
-            <ScoreDisplay songTitle="My War"/>
+            <ScoreDisplay songTitle="Akuma no Ko"/>
         </div>
     );
 }
