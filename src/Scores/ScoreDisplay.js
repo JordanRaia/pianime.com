@@ -74,26 +74,30 @@ export class RealtimeData extends React.Component {
                             console.log(error);
                         });
 
-                    getDownloadURL(midiRef)
-                        .then((url) => {
-                            const a = document.getElementById("midiDownload");
-                            a.setAttribute("href", url);
-                        })
-                        .catch((error) => {
-                            console.log(error);
-                        });
-
                     let date = row.data.date.split(",")[0]; //remove time from date
                     let pdfPath = row.data.pdf.split("/").pop(); //remove folder from path
-                    let midiPath = row.data.midi.split("/").pop(); //remove folder form path
-
-                    let pdfSize = formatBytes(row.data.pdfSize);
-                    let midiSize = formatBytes(row.data.midiSize);
 
                     let midiExists = false;
+
+                    var midiPath;
+                    var midiSize;
                     if (row.data.midi !== "") {
                         midiExists = true;
+                        midiPath = row.data.midi.split("/").pop(); //remove folder form path
+                        midiSize = formatBytes(row.data.midiSize);
+
+                        getDownloadURL(midiRef)
+                            .then((url) => {
+                                const a =
+                                    document.getElementById("midiDownload");
+                                a.setAttribute("href", url);
+                            })
+                            .catch((error) => {
+                                console.log(error);
+                            });
                     }
+
+                    let pdfSize = formatBytes(row.data.pdfSize);
 
                     return (
                         <>
