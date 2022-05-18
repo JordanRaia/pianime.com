@@ -1,0 +1,36 @@
+.title {
+    text-align: center;
+    margin-top: 10%;
+    margin-bottom: 20%;
+}
+
+.title__title {
+    font-family: 'Dosis', sans-serif;
+    color: white;
+    font-size: 8vw;
+    text-transform: uppercase;
+}
+
+.title__subtitle {
+    font-family: 'Dosis', sans-serif;
+    color: white;
+    font-size: 4vw;
+}
+
+@media (max-width: 768px){
+    .title__title {
+        font-size: 10vw;
+    }
+    .title__subtitle {
+        font-size: 6vw;
+    }
+}
+
+@media (min-width: 1280px){
+    .title__title {
+        font-size: 122px;
+    }
+    .title__subtitle {
+        font-size: 56px;
+    }
+}

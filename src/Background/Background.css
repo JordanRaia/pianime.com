@@ -1,0 +1,31 @@
+body {
+    background-color: black;
+    background-image: url(../img/banner_c.jpg);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: 100%;
+    position: sticky;
+    top: 0;
+}
+
+@media (max-width: 1280px) and (min-width: 768px) {
+    body {
+        background-size: 150%;
+        background-position: 70% 0%;
+    }
+}
+
+
+@media (max-width: 768px) and (min-width: 400px) {
+    body {
+        background-size: 250%;
+        background-position: 83% 0%;
+    }
+}
+
+@media (max-width: 400px) {
+    body {
+        background-size: 500%;
+        background-position: 85% 0%;
+    }
+}

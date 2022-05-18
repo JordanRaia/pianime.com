@@ -1,0 +1,176 @@
+.score__titleSection {
+    height: 100%;
+    color: white;
+    background-color: #333;
+    padding: 10px;
+    border-radius: 10px;
+    margin-top: 10px;
+    margin-bottom: 5px;
+}
+
+/* Titles */
+.score__title {
+    font-family: "Source Sans Pro", sans-serif;
+    color: white;
+    font-size: 2rem;
+}
+
+.score__subtitle {
+    font-family: "Source Sans Pro", sans-serif;
+    color: white;
+    font-style: italic;
+    font-size: 1rem;
+}
+
+/* Pdf */
+.score__pdfContainer {
+    width: 100%;
+    margin-right: 10px;
+    background-color: #333;
+    border-radius: 10px;
+    display: flex;
+    margin-bottom: 10px;
+}
+
+@media (max-width: 1800px){
+    .score__pdfContainer {
+        height: 800px;
+    }
+}
+
+/* @media (min-width: 1800px) {
+    .score__pdfContainer {
+        width: 100%;
+    }
+} */
+
+.score__pdf {
+    width: 100%;
+    margin: 10px;
+}
+
+/* Score info */
+.score__scoreSection {
+    display: flex;
+}
+
+.score__infoFlexBox {
+    width: 50%;
+    display: flex;
+    margin-bottom: 30%;
+    flex-direction: column;
+}
+
+@media (max-width: 768px) {
+    .score__scoreSection {
+        flex-direction: column;
+    }
+
+    .score__infoFlexBox {
+        width: 100%;
+        margin-bottom: 0%;
+    }
+
+    .score__pdfContainer {
+        height: 800px;
+    }
+}
+
+.score__well {
+    height: 100%;
+    color: white;
+    background-color: #333;
+    padding: 10px;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+
+/* Youtube */
+.score__youtubePlayer {
+    width: 100%;
+    height: auto;
+}
+
+/* Score Information */
+.score__headerFlexBox {
+    display: flex;
+}
+
+.score__infoHeader {
+    font-family: "Source Sans Pro", sans-serif;
+    font-size: 1.125rem;
+    font-weight: 600;
+}
+
+.score__infoSubHeader {
+    font-family: "Source Sans Pro", sans-serif;
+    font-size: 12px;
+    font-weight: 100;
+    margin-top: 3px;
+}
+
+.score__sheetInfoFlexBox {
+    display: flex;
+    flex-direction: column;
+    margin-top: 10px;
+}
+
+.score__listFlexBox {
+    display: flex;
+    margin-bottom: 5px;
+}
+
+.score__infoList {
+    list-style: none;
+}
+
+.score__infoKey {
+    font-family: "Source Sans Pro", sans-serif;
+    width: 55%;
+    font-size: 0.875rem;
+    color: darkgray;
+}
+
+@media (max-width: 1000px) {
+    .score__infoKey {
+        width: 85%;
+    }
+}
+
+.score__infoValue {
+    font-family: "Source Sans Pro", sans-serif;
+    width: 100%;
+    font-size: 0.875rem;
+}
+
+.score__downloadFlexBox {
+    display: flex;
+    text-decoration: none;
+    color: white;
+    font-family: "Source Sans Pro", sans-serif;
+    font-size: 0.875rem;
+    margin-bottom: 5px;
+}
+
+.score__downloadFlexBox:hover {
+    background-color: #222;
+}
+
+.score__download {
+    margin-left: 2px;
+    margin-right: 2px;
+}
+
+.score__downloadIcon {
+    height: 12px;
+    width: 12px;
+    margin-left: 2px;
+    margin-right: 2px;
+    margin-top: 2.8px;
+}
+
+.score__downloadSize {
+    font-family: "Source Sans Pro", sans-serif;
+    font-size: .75rem;
+    color: darkgray;
+}
