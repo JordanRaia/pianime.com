@@ -18,9 +18,16 @@
 
 .home__header {
     text-align: center;
-    font-family: 'Dosis', sans-serif;
+    font-family: "Anton", sans-serif;
     color: white;
-    font-size: 4vw;
+    font-weight: 400;
+    font-size: 3rem;
+}
+
+@media (max-width: 1000px) {
+    .home__header {
+        font-size: 5vw;
+    }
 }
 
 @media (max-width: 768px) {

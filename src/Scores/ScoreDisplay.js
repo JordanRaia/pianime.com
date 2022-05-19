@@ -236,6 +236,7 @@ export class RealtimeData extends React.Component {
                                                 <ul className="score__infoList">
                                                     <li>
                                                         <a
+                                                            href="./"
                                                             className="score__downloadFlexBox"
                                                             id="pdfDownload"
                                                             download
@@ -258,6 +259,7 @@ export class RealtimeData extends React.Component {
                                                     {midiExists ? (
                                                         <li>
                                                             <a
+                                                                href="./"
                                                                 className="score__downloadFlexBox"
                                                                 id="midiDownload"
                                                                 download

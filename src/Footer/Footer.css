@@ -1,0 +1,40 @@
+.footer {
+    max-width: 1280px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 5%;
+}
+
+@media (max-width: 1280px) {
+    .footer {
+        max-width: 1000px;
+    }
+}
+
+@media (max-width: 1000px) {
+    .footer {
+        max-width: 768px;
+    }
+}
+
+.footer__title {
+    text-align: center;
+    font-family: "Anton", sans-serif;
+    color: white;
+}
+
+.footer__subtitle {
+    text-align: center;
+    font-family: "Anton", sans-serif;
+    color: white;
+    margin-bottom: 3%;
+}
+
+.footer__copyright {
+    text-align: center;
+    padding-bottom: 1%;
+    font-size: 14px;
+    color: #AAB1B7;
+    font-weight: 400;
+    font-family: "Mulish", sans-serif;
+}

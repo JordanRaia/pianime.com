@@ -15,7 +15,7 @@ function RenderPdf({ pdfRef }) {
 
     return (
         <div className="pdf">
-            <iframe className="pdf__object" src={pageUrl} frameBorder="0" type="application/pdf">
+            <iframe className="pdf__object" src={pageUrl} frameBorder="0" title="sheet music pdf" type="application/pdf">
             </iframe>
         </div>
     );

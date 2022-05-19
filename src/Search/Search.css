@@ -1,0 +1,22 @@
+.search {
+    max-width: 1280px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+@media (max-width: 1280px) {
+    .search {
+        max-width: 1000px;
+    }
+}
+
+@media (max-width: 1000px) {
+    .search {
+        max-width: 768px;
+    }
+}
+
+.search__searchBar {
+    margin-bottom: 40px;
+    width: 100%;
+}

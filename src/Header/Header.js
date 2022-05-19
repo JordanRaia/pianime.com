@@ -46,6 +46,8 @@ function Header({ a }) {
         case "donate":
             headerOption[5] = "header__optionActive";
             break;
+        default:
+            console.log(a + " is not a valid header item.");
     }
 
     return (
@@ -56,7 +58,7 @@ function Header({ a }) {
                     href="https://fonts.googleapis.com/css?family=Anton"
                 />
                 <Link to={"/"}>
-                    <img className="header__logo" src={logo} />
+                    <img className="header__logo" src={logo} alt="PiAnime Logo"/>
                 </Link>
                 <div className="header__center">
                     <Hamburger headerOption={headerOption} />
