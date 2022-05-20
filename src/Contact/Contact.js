@@ -13,12 +13,6 @@ function Contact() {
 
         if (message === "") {
             window.alert("Missing Message");
-
-            setTimeout(fade_out, 5000);
-
-            function fade_out() {
-                const p = document.getElementById("missing");
-            }
         } else {
             sendEmail(e);
         }
