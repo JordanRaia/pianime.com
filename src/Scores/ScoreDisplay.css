@@ -14,6 +14,27 @@
     margin-bottom: 5px;
 }
 
+/* Navigation */
+.score__route {
+    display: flex;
+}
+
+.score__route > p {
+    margin-left: 10px;
+    margin-right: 10px;
+    color: lightgray;
+}
+
+.score__route > a {
+    color: darkgray;
+    text-decoration: none;
+}
+
+.score__route > a:hover {
+    color: white;
+    text-decoration: underline;
+}
+
 /* Titles */
 .score__title {
     font-family: "Source Sans Pro", sans-serif;
@@ -180,3 +201,4 @@
     font-size: .75rem;
     color: darkgray;
 }
+

@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Home from "./Home/Home";
 import Header from "./Header/Header";
 import Scores from "./Scores/Scores";
+import Contact from "./Contact/Contact";
 import { database } from "./firebase.js";
 import { onValue, ref, orderByChild, query } from "firebase/database";
 import ScoreDisplay from "./Scores/ScoreDisplay";
@@ -42,11 +43,15 @@ export class App extends Component {
                             element={[<Header a="home" />, <Home />, <Footer />]}
                         />
                         <Route
-                            path="/Scores"
+                            path="/Sheet%20Music"
                             element={[<Header a="scores" />, <Scores />, <Footer />]}
                         />
+                        <Route
+                            path="/Contact"
+                            element={[<Header a="contact" />, <Contact />, <Footer />]}
+                        />
                         {this.state.tableData.map((row) => {
-                            let routePath = "Scores/" + encodeURIComponent(row.key).replace('%26', '&');
+                            let routePath = "Sheet%20Music/" + encodeURIComponent(row.key).replace('%26', '&');
                             return (
                                 <Route
                                     path={routePath}

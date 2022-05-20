@@ -8,6 +8,7 @@ import {
 } from "firebase/storage";
 import { database } from "../firebase.js";
 import RenderPdf from "./RenderPdf";
+import { HashLink as Link } from 'react-router-hash-link';
 import DownloadIcon from "@mui/icons-material/Download";
 import LibraryMusicIcon from "@mui/icons-material/LibraryMusic";
 import MusicNoteIcon from "@mui/icons-material/MusicNote";
@@ -106,10 +107,17 @@ export class RealtimeData extends React.Component {
                                 href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap"
                             />
                             <div className="score__titleSection">
-                                <h2 className="score__title">{row.key}</h2>
-                                <h3 className="score__subtitle">
+                                <div className="score__route">
+                                    <Link to={"/Sheet%20Music"}>Sheet Music</Link>
+                                    <p> {">"} </p>
+                                    <Link to={"/Sheet%20Music/#" + encodeURIComponent(row.data.anime).replace('%26', '&')}>{row.data.anime}</Link>
+                                    <p> {">"} </p>
+                                    <Link to={"/Sheet%20Music/" + encodeURIComponent(row.key).replace('%26', '&')}>{row.key}</Link>
+                                </div>
+                                <h1 className="score__title">{row.key}</h1>
+                                <h2 className="score__subtitle">
                                     {row.data.anime} {row.data.type}
-                                </h3>
+                                </h2>
                             </div>
                             <div className="score__scoreSection">
                                 <div className="score__pdfContainer">
@@ -121,9 +129,9 @@ export class RealtimeData extends React.Component {
                                     <div className="score__well">
                                         <div className="score__headerFlexBox">
                                             <YouTubeIcon />
-                                            <h4 className="score__infoHeader">
+                                            <h3 className="score__infoHeader">
                                                 Youtube Video
-                                            </h4>
+                                            </h3>
                                         </div>
                                         <iframe
                                             className="score__youtubePlayer"
@@ -139,13 +147,13 @@ export class RealtimeData extends React.Component {
                                             <div>
                                                 <div className="score__headerFlexBox">
                                                     <MusicNoteIcon />
-                                                    <h4 className="score__infoHeader">
+                                                    <h3 className="score__infoHeader">
                                                         Sheet Information
-                                                    </h4>
+                                                    </h3>
                                                 </div>
-                                                <h4 className="score__infoSubHeader">
+                                                <h3 className="score__infoSubHeader">
                                                     Published on {date}
-                                                </h4>
+                                                </h3>
                                             </div>
                                             <div className="score__sheetInfoFlexBox">
                                                 <ul className="score__infoList">
@@ -194,9 +202,9 @@ export class RealtimeData extends React.Component {
                                             <div>
                                                 <div className="score__headerFlexBox">
                                                     <LibraryMusicIcon />
-                                                    <h4 className="score__infoHeader">
+                                                    <h3 className="score__infoHeader">
                                                         Song Information
-                                                    </h4>
+                                                    </h3>
                                                 </div>
                                             </div>
                                             <div className="score__sheetInfoFlexBox">
@@ -227,9 +235,9 @@ export class RealtimeData extends React.Component {
                                             <div>
                                                 <div className="score__headerFlexBox">
                                                     <DownloadIcon />
-                                                    <h4 className="score__infoHeader">
+                                                    <h3 className="score__infoHeader">
                                                         Download
-                                                    </h4>
+                                                    </h3>
                                                 </div>
                                             </div>
                                             <div className="score__sheetInfoFlexBox">

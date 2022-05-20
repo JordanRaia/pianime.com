@@ -38,7 +38,7 @@ function Home() {
         return (
             <>
                 <div className="home">
-                    <Title title="Pianime" subtitle="Anime Piano Arrangements" />
+                    <Title title="PiAnime" subtitle="Anime Piano Arrangements" />
                     <div className="home__header">Most Recent Arrangement</div>
                     <ScoreDisplay songTitle={songs[songs.length-1].key} />
                 </div>

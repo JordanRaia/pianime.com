@@ -48,7 +48,6 @@
     border-radius: 10px;
     padding: 5px;
     margin: 10px;
-    border: 1px solid white;
 }
 
 .scores__animeBlock {
@@ -96,7 +95,7 @@
 
 .scores__songWell:hover {
     background-color: white;
-    color: black;
+    color: #333;
     transition: all 0.3s linear;
 }
 

@@ -63,7 +63,7 @@ function Header({ a }) {
                 <div className="header__center">
                     <Hamburger headerOption={headerOption} />
                 </div>
-                <Link className="header__link" to="/">
+                <Link className="header__link" to="/Donate">
                     <div className="header__optionDonate">
                         <div className="header__optionText">Donate</div>
                     </div>

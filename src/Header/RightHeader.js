@@ -10,12 +10,12 @@ function RightHeader({ headerOption, open }) {
                     <div className="header__optionText">Home</div>
                 </div>
             </Link>
-            <Link className="header__link" to="/Scores">
+            <Link className="header__link" to="/Sheet Music">
                 <div className={headerOption[1]}>
-                    <div className="header__optionText">Scores</div>
+                    <div className="header__optionText">Sheet Music</div>
                 </div>
             </Link>
-            <Link className="header__link" to="/">
+            {/* <Link className="header__link" to="/">
                 <div className={headerOption[2]}>
                     <div className="header__optionText">Song Requests</div>
                 </div>
@@ -24,14 +24,14 @@ function RightHeader({ headerOption, open }) {
                 <div className={headerOption[3]}>
                     <div className="header__optionText">Beat Saber</div>
                 </div>
-            </Link>
-            <Link className="header__link" to="/">
+            </Link> */}
+            <Link className="header__link" to="/Contact">
                 <div className={headerOption[4]}>
                     <div className="header__optionText">Contact</div>
                 </div>
             </Link>
             <div className="header__invisibleOnDesktop">
-                <Link className="header__link" to="/">
+                <Link className="header__link" to="/Donate">
                     <div className={headerOption[5]}>
                         <div className="header__optionText">Donate</div>
                     </div>

@@ -1,0 +1,120 @@
+.contact {
+    max-width: 1280px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+@media (max-width: 1280px) {
+    .contact {
+        max-width: 1000px;
+    }
+}
+
+@media (max-width: 1000px) {
+    .contact {
+        max-width: 768px;
+    }
+}
+
+.contact__title {
+    font-size: 4rem;
+    font-family: "Source Sans Pro", sans-serif;
+    font-weight: 800;
+    color: white;
+    text-align: center;
+    margin: 10%;
+}
+
+@media (max-width: 768px){
+    .contact__title {
+        font-size: 10vw;
+    }
+}
+
+@media (min-width: 1280px){
+    .contact__title {
+        font-size: 6.25rem;
+    }
+}
+
+.contact__formFlexBox {
+    display: flex;
+    flex-direction: column;
+}
+
+.contact__nameFlexBox {
+    display: flex;
+}
+
+@media (max-width: 768px) {
+    .contact__nameFlexBox {
+        flex-direction: column;
+    }
+}
+
+.contact__inputField {
+    display: flex;
+    width: 100%;
+}
+
+.contact__inputText {
+    width: 100%;
+    margin: 10px;
+    padding: 10px;
+    font-size: 1.5rem;
+}
+
+.contact__textArea {
+    font-family: "Source Sans Pro", sans-serif;
+    width: 100%;
+    margin: 10px;
+    padding: 10px;
+    font-size: 1.5rem;
+}
+
+.contact__submitDiv {
+    display: flex;
+    justify-content: center;
+}
+
+.contact__submit {
+    font-family: "Source Sans Pro", sans-serif;
+    color: -internal-light-dark(black, white);
+    margin: 10px;
+    padding: 10px;
+    font-size: 1.5rem;
+    border-radius: 10px;
+    border: 1px solid white;
+}
+
+.contact__submit:hover {
+    color: white;
+    background-color: transparent;
+    border: 1px solid white;
+    transition: all 0.3s linear;
+}
+
+.contact__log {
+    font-family: "Source Sans Pro", sans-serif;
+    color: white;
+    text-align: center;
+}
+
+.contact__email {
+    display: flex;
+    color: white;
+    justify-content: center;
+    font-size: 1rem;
+}
+
+.contact__emailAddress {
+    font-family: "Source Sans Pro", sans-serif;
+    font-size: 1.5rem;
+    margin: 2px;
+}
+
+.contact__icon {
+    margin: 2px;
+    font-size: 1.5rem;
+    margin-top: 5px;
+}

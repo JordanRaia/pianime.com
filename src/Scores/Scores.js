@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import "./Scores.css";
 import { database } from "../firebase.js";
 import { onValue, ref, query } from "firebase/database";
+import { Link } from "react-router-dom";
 
 export class Scores extends Component {
     constructor() {
@@ -37,25 +38,25 @@ export class Scores extends Component {
     render() {
         return (
             <div className="scores">
-                <div className="scores__title">Sheet Music</div>
+                <h1 className="scores__title">Sheet Music</h1>
                 <div className="scores__scoresFlexBox">
                     {this.state.animeData.map((anime) => {
                         return (
                             <div className="scores__animeWell">
                                 <div className="scores__animeBlock">
-                                    <div className="scores__anime">
+                                    <h2 id={"#" + encodeURIComponent(anime.key).replace('%26', '&')} className="scores__anime">
                                         {anime.key}
-                                    </div>
+                                    </h2>
                                     <div className="scores__songFlexBox">
                                         {this.state.scoreData.map((score) => {
-                                            let scoreHref = `./Scores/${score.key}`;
+                                            let scoreHref = `/Sheet%20Music/${score.key}`;
                                             if (
                                                 score.data.anime === anime.key
                                             ) {
                                                 return (
-                                                    <a
+                                                    <Link
                                                         className="scores__songWell"
-                                                        href={scoreHref}
+                                                        to={scoreHref}
                                                     >
                                                         <div className="scores__song">
                                                             <div className="scores__songText">
@@ -63,7 +64,7 @@ export class Scores extends Component {
                                                                 {score.data.type}
                                                             </div>
                                                         </div>
-                                                    </a>
+                                                    </Link>
                                                 );
                                             } else {
                                                 return "";
