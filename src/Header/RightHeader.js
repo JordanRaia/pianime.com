@@ -31,11 +31,11 @@ function RightHeader({ headerOption, open }) {
                 </div>
             </Link>
             <div className="header__invisibleOnDesktop">
-                <Link className="header__link" to="/Donate">
+                <a className="header__link" href="https://www.buymeacoffee.com/PiAnime">
                     <div className={headerOption[5]}>
                         <div className="header__optionText">Donate</div>
                     </div>
-                </Link>
+                </a>
             </div>
         </div>
     );

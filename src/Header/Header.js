@@ -63,11 +63,11 @@ function Header({ a }) {
                 <div className="header__center">
                     <Hamburger headerOption={headerOption} />
                 </div>
-                <Link className="header__link" to="/Donate">
+                <a className="header__link" href="https://www.buymeacoffee.com/PiAnime">
                     <div className="header__optionDonate">
                         <div className="header__optionText">Donate</div>
                     </div>
-                </Link>
+                </a>
             </div>
         </div>
     );
