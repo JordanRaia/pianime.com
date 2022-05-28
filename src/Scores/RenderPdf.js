@@ -52,6 +52,18 @@ function RenderPdf({ pdfRef }) {
                 <div className="pdf__documentWrapper">
                     <PDFDocumentWrapper>
                         <Document
+                            error={
+                                <div>
+                                    <img
+                                        className="pdf__pageElements"
+                                        src={BlankPage}
+                                        alt="blank page"
+                                    ></img>
+                                    <p className="pdf__pageNum">
+                                        Page {pageNumber} of {numPages}
+                                    </p>
+                                </div>
+                            }
                             loading={
                                 <div>
                                     <img
