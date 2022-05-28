@@ -4,6 +4,8 @@ import { Document, Page } from "react-pdf/dist/esm/entry.webpack";
 import styled from "styled-components";
 import { useWindowWidth } from "@wojtekmaj/react-hooks";
 import "./RenderPdf.css";
+import NavigateBeforeIcon from "@mui/icons-material/NavigateBefore";
+import NavigateNextIcon from "@mui/icons-material/NavigateNext";
 
 function RenderPdf({ pdfRef }) {
     const [pageUrl, setPageUrl] = useState("");
@@ -11,9 +13,16 @@ function RenderPdf({ pdfRef }) {
     const [pageNumber, setPageNumber] = useState(1);
     const width = useWindowWidth();
 
-    
     function onDocumentLoadSuccess({ numPages }) {
         setNumPages(numPages);
+    }
+
+    function changePageBack() {
+        setPageNumber((prevPageNumber) => prevPageNumber - 1);
+    }
+    
+    function changePageNext() {
+        setPageNumber((prevPageNumber) => prevPageNumber + 1);
     }
 
     // styling wrapper for pdf Document
@@ -45,18 +54,39 @@ function RenderPdf({ pdfRef }) {
                             file={pageUrl}
                             onLoadSuccess={onDocumentLoadSuccess}
                         >
-                            <Page
-                                width={Math.min(width * 0.9, 800)} // width: 90vw; max-width: 800px
-                                renderTextLayer={false}
-                                className="pdf__page"
-                                pageNumber={pageNumber}
-                            />
+                            <div className="pdf__pageElements">
+                                <Page
+                                    width={Math.min(width * 0.9, 800)} // width: 90vw; max-width: 800px
+                                    renderTextLayer={false}
+                                    className="pdf__page"
+                                    pageNumber={pageNumber}
+                                />
+                                <div className="pdf__pageNavFlexBox">
+                                    <button
+                                        onClick={changePageBack}
+                                        disabled={pageNumber > 1 ? false : true}
+                                        className="pdf__pageNavButton"
+                                    >
+                                        <NavigateBeforeIcon sx={{fontSize: "150px"}} className="pdf__pageNavIcon" />
+                                    </button>
+                                    <div className="pdf__pageNavEmpty"></div>
+                                    <button
+                                        onClick={changePageNext}
+                                        disabled={
+                                            pageNumber < numPages ? false : true
+                                        }
+                                        className="pdf__pageNavButton"
+                                    >
+                                        <NavigateNextIcon sx={{fontSize: "150px"}} className="pdf__pageNavIcon" />
+                                    </button>
+                                </div>
+                            </div>
+                            <p className="pdf__pageNum">
+                                Page {pageNumber} of {numPages}
+                            </p>
                         </Document>
                     </PDFDocumentWrapper>
                 </div>
-                <p className="pdf__pageNum">
-                    Page {pageNumber} of {numPages}
-                </p>
             </div>
         </div>
     );

@@ -60,15 +60,9 @@
     height: fit-content;
 }
 
-/* @media (max-width: 1800px){
-    .score__pdfContainer {
-        height: fit-content;
-    }
-} */
-
 .score__pdf {
     width: 100%;
-    margin: 10px;
+    margin: 15px;
 }
 
 /* Score info */

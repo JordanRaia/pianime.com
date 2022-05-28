@@ -3,15 +3,50 @@
     height: fit-content;
 }
 
-.pdf__details {
+/* .pdf__details {
     display: flex;
     flex-direction: column;
-    /* align-items: center; */
-}
+} */
 
 .pdf__pageNum {
     font-family: "Source Sans Pro", sans-serif;
     font-size: 1rem;
     color: white;
     text-align: center;
+}
+
+.pdf__pageNavFlexBox {
+    position: absolute;
+    top: 0%;
+    width: 100%;
+    height: 100%;
+    display: flex;
+}
+
+.pdf__pageNavEmpty {
+    width: 100%;
+}
+
+.pdf__pageNavButton {
+    background-color: transparent;
+    border: none;
+}
+
+.pdf__pageNavButton:hover > .pdf__pageNavIcon {
+    opacity: 100%;
+    color: #333;
+}
+
+.pdf__pageNavButton:disabled {
+    display: none;
+}
+
+.pdf__pageNavIcon {
+    opacity: 55%;
+    color: gray;
+}
+
+.pdf__pageElements {
+    position: relative;
+    width: 100%;
 }
