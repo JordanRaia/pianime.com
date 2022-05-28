@@ -57,6 +57,7 @@ function RenderPdf({ pdfRef }) {
                                     <img
                                         className="pdf__pageElements"
                                         src={BlankPage}
+                                        alt="blank page"
                                     ></img>
                                     <p className="pdf__pageNum">
                                         Page {pageNumber} of {numPages}
@@ -68,6 +69,7 @@ function RenderPdf({ pdfRef }) {
                                     <img
                                         className="pdf__pageElements"
                                         src={BlankPage}
+                                        alt="blank page"
                                     ></img>
                                     <p className="pdf__pageNum">
                                         Page {pageNumber} of {numPages}
