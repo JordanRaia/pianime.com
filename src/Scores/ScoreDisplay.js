@@ -15,7 +15,7 @@ import MusicNoteIcon from "@mui/icons-material/MusicNote";
 import YouTubeIcon from "@mui/icons-material/YouTube";
 import AdobePdfIcon from "../img/AdobePDF.png";
 import MidiIcon from "../img/MIDI.png";
-import { t } from "i18next";
+import i18next, { t } from "i18next";
 
 var song = undefined;
 
@@ -76,7 +76,14 @@ export class RealtimeData extends React.Component {
                             console.log(error);
                         });
 
-                    let date = row.data.date.split(",")[0]; //remove time from date
+                    let datestr = row.data.date.split(",")[0]; //remove time from date
+                    
+                    //split date into month, day and year
+                    var split = datestr.split('/');
+                    let month = split[0];
+                    let day = split[1];
+                    let year = split[2];
+
                     let pdfPath = row.data.pdf.split("/").pop(); //remove folder from path
 
                     let midiExists = false;
@@ -131,7 +138,7 @@ export class RealtimeData extends React.Component {
                                         <div className="score__headerFlexBox">
                                             <YouTubeIcon />
                                             <h3 className="score__infoHeader">
-                                                Youtube Video
+                                                {t("youtube_video")}
                                             </h3>
                                         </div>
                                         <iframe
@@ -149,18 +156,18 @@ export class RealtimeData extends React.Component {
                                                 <div className="score__headerFlexBox">
                                                     <MusicNoteIcon />
                                                     <h3 className="score__infoHeader">
-                                                        Sheet Information
+                                                        {t("sheet_information")}
                                                     </h3>
                                                 </div>
                                                 <h3 className="score__infoSubHeader">
-                                                    Published on {date}
+                                                    {t("published", {year: year, month: month, day: day})}
                                                 </h3>
                                             </div>
                                             <div className="score__sheetInfoFlexBox">
                                                 <ul className="score__infoList">
                                                     <li className="score__listFlexBox">
                                                         <div className="score__infoKey">
-                                                            Pages:
+                                                            {t("pages")}
                                                         </div>
                                                         <div className="score__infoValue">
                                                             {row.data.pageNum}
@@ -168,7 +175,7 @@ export class RealtimeData extends React.Component {
                                                     </li>
                                                     <li className="score__listFlexBox">
                                                         <div className="score__infoKey">
-                                                            Instrumentation:
+                                                            {t("instrumentation")}
                                                         </div>
                                                         <div className="score__infoValue">
                                                             {
@@ -179,7 +186,7 @@ export class RealtimeData extends React.Component {
                                                     </li>
                                                     <li className="score__listFlexBox">
                                                         <div className="score__infoKey">
-                                                            Category:
+                                                            {t("category")}
                                                         </div>
                                                         <div className="score__infoValue">
                                                             {row.data.category}
@@ -187,8 +194,8 @@ export class RealtimeData extends React.Component {
                                                     </li>
                                                     <li className="score__listFlexBox">
                                                         <div className="score__infoKey">
-                                                            {row.data.category}{" "}
-                                                            Title:
+                                                            {row.data.category}
+                                                            {t("title")}
                                                         </div>
                                                         <div className="score__infoValue">
                                                             {row.data.anime}
@@ -204,7 +211,7 @@ export class RealtimeData extends React.Component {
                                                 <div className="score__headerFlexBox">
                                                     <LibraryMusicIcon />
                                                     <h3 className="score__infoHeader">
-                                                        Song Information
+                                                        {t("song_information")}
                                                     </h3>
                                                 </div>
                                             </div>
@@ -212,7 +219,7 @@ export class RealtimeData extends React.Component {
                                                 <ul className="score__infoList">
                                                     <li className="score__listFlexBox">
                                                         <div className="score__infoKey">
-                                                            Composer:
+                                                            {t("composer")}
                                                         </div>
                                                         <div className="score__infoValue">
                                                             {row.data.composer}
@@ -220,7 +227,7 @@ export class RealtimeData extends React.Component {
                                                     </li>
                                                     <li className="score__listFlexBox">
                                                         <div className="score__infoKey">
-                                                            Source Title:
+                                                            {t("source_title")}
                                                         </div>
                                                         <div className="score__infoValue">
                                                             {row.data.anime}{" "}
@@ -237,7 +244,7 @@ export class RealtimeData extends React.Component {
                                                 <div className="score__headerFlexBox">
                                                     <DownloadIcon />
                                                     <h3 className="score__infoHeader">
-                                                        Download
+                                                        {t("download")}
                                                     </h3>
                                                 </div>
                                             </div>

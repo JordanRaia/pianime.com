@@ -7,6 +7,7 @@ import NavigateBeforeIcon from "@mui/icons-material/NavigateBefore";
 import NavigateNextIcon from "@mui/icons-material/NavigateNext";
 import "./RenderPdf.css";
 import BlankPage from "../img/blank_page.jpg";
+import { t } from "i18next";
 
 function RenderPdf({ pdfRef }) {
     const [pageUrl, setPageUrl] = useState("");
@@ -60,7 +61,7 @@ function RenderPdf({ pdfRef }) {
                                         alt="blank page"
                                     ></img>
                                     <p className="pdf__pageNum">
-                                        Page {pageNumber} of {numPages}
+                                        {t("page_number", {page: pageNumber, total_page: numPages})}
                                     </p>
                                 </div>
                             }
@@ -72,7 +73,7 @@ function RenderPdf({ pdfRef }) {
                                         alt="blank page"
                                     ></img>
                                     <p className="pdf__pageNum">
-                                        Page {pageNumber} of {numPages}
+                                        {t("page_number", {page: pageNumber, total_page: numPages})}
                                     </p>
                                 </div>
                             }
@@ -84,7 +85,7 @@ function RenderPdf({ pdfRef }) {
                                         alt="blank page"
                                     ></img>
                                     <p className="pdf__pageNum">
-                                        Page {pageNumber} of {numPages}
+                                        {t("page_number", {page: pageNumber, total_page: numPages})}
                                     </p>
                                 </div>
                             }
@@ -126,7 +127,7 @@ function RenderPdf({ pdfRef }) {
                                 </div>
                             </div>
                             <p className="pdf__pageNum">
-                                Page {pageNumber} of {numPages}
+                                {t("page_number", {page: pageNumber, total_page: numPages})}
                             </p>
                         </Document>
                     </PDFDocumentWrapper>

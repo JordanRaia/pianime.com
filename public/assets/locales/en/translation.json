@@ -14,5 +14,21 @@
     "donate": "donate",
 
     "youtube_video": "Youtube Video",
-    "sheet_information": "Sheet Information"
+    "sheet_information": "Sheet Information",
+    "published": "Published on {{month}}/{{day}}/{{year}}",
+    "pages": "Pages:",
+    "instrumentation": "Instrumentation:",
+    "category": "Genre:",
+    "title": " Title:",
+    "song_information": "Song Information",
+    "composer": "Composer:",
+    "source_title": "Source Title:",
+    "download": "Download",
+    "page_number": "Page {{page}} of {{total_page}}",
+
+    "name": "Name",
+    "email": "Email Address",
+    "subject": "Subject",
+    "message": "Message",
+    "send": "Send Message"
 }

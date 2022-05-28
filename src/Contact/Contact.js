@@ -58,7 +58,7 @@ function Contact() {
                                 <input
                                     className="contact__inputText"
                                     type="text"
-                                    placeholder="Name"
+                                    placeholder={t("name")}
                                     name="name"
                                 />
                             </div>
@@ -67,7 +67,7 @@ function Contact() {
                                     className="contact__inputText"
                                     type="text"
                                     name="email"
-                                    placeholder="Email Address"
+                                    placeholder={t("email")}
                                 />
                             </div>
                         </div>
@@ -75,7 +75,7 @@ function Contact() {
                             <input
                                 className="contact__inputText"
                                 type="text"
-                                placeholder="Subject"
+                                placeholder={t("subject")}
                                 name="subject"
                             />
                         </div>
@@ -84,7 +84,7 @@ function Contact() {
                                 onChange={(e) => setMessage(e.target.value)}
                                 className="contact__textArea"
                                 name="message"
-                                placeholder="Message"
+                                placeholder={t("message")}
                                 id=""
                                 cols="30"
                                 rows="8"
@@ -94,7 +94,7 @@ function Contact() {
                             <input
                                 className="contact__submit"
                                 type="submit"
-                                value="Send Message"
+                                value={t("send")}
                             />
                         </div>
                     </div>

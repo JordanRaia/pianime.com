@@ -11,5 +11,24 @@
     "requests": "音楽依頼",
     "beat_saber": "ビートセイバー",
     "contact": "コンタクト",
-    "donate": "寄付"
+    "donate": "寄付",
+
+    "youtube_video": "YouTubeビデオ",
+    "sheet_information": "楽譜の情報",
+    "published": "{{year}}年{{month}}月{{day}}日発行",
+    "pages": "ページ：",
+    "instrumentation": "楽器法：",
+    "category": "ジャンル：",
+    "title": "のタイトル：",
+    "song_information": "音楽の情報",
+    "composer": "作曲家：",
+    "source_title": "曲目情報：",
+    "download": "ダウンロード",
+    "page_number": "{{page}}/{{total_page}}ページ",
+
+    "name": "名前",
+    "email": "電子メール",
+    "subject": "標記",
+    "message": "メッセージ",
+    "send": "メッセージを送る"
 }
