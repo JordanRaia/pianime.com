@@ -15,6 +15,7 @@ import MusicNoteIcon from "@mui/icons-material/MusicNote";
 import YouTubeIcon from "@mui/icons-material/YouTube";
 import AdobePdfIcon from "../img/AdobePDF.png";
 import MidiIcon from "../img/MIDI.png";
+import { t } from "i18next";
 
 var song = undefined;
 
@@ -108,7 +109,7 @@ export class RealtimeData extends React.Component {
                             />
                             <div className="score__titleSection">
                                 <div className="score__route">
-                                    <Link to={"/Sheet%20Music"}>Sheet Music</Link>
+                                    <Link to={"/Sheet%20Music"}>{t("sheet_music")}</Link>
                                     <p> {">"} </p>
                                     <Link to={"/Sheet%20Music/#" + encodeURIComponent(row.data.anime).replace('%26', '&')}>{row.data.anime}</Link>
                                     <p> {">"} </p>

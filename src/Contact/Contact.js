@@ -2,6 +2,7 @@ import React, { useRef, useState } from "react";
 import emailjs from "@emailjs/browser";
 import "./Contact.css";
 import EmailIcon from "@mui/icons-material/Email";
+import { t } from "i18next";
 
 function Contact() {
     const [message, setMessage] = useState("");
@@ -42,7 +43,7 @@ function Contact() {
 
     return (
         <div className="contact">
-            <h1 className="contact__title">Contact</h1>
+            <h1 className="contact__title">{t("contact")}</h1>
             <div className="contact__email">
                 <div className="contact__icon">
                     <EmailIcon />

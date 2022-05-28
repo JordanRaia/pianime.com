@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 // import SearchIcon from "@mui/icons-material/Search";
 import Hamburger from "./Hamburger";
 import logo from "../img/logo.png";
+import { t } from "i18next";
 
 function Header({ a }) {
     const [colorChange, setColorchange] = useState(false);
@@ -65,7 +66,7 @@ function Header({ a }) {
                 </div>
                 <a className="header__link" href="https://www.buymeacoffee.com/PiAnime">
                     <div className="header__optionDonate">
-                        <div className="header__optionText">Donate</div>
+                        <div className="header__optionText">{t("donate")}</div>
                     </div>
                 </a>
             </div>

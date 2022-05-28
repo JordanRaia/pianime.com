@@ -3,6 +3,7 @@ import "./Scores.css";
 import { database } from "../firebase.js";
 import { onValue, ref, query } from "firebase/database";
 import { Link } from "react-router-dom";
+import { t } from "i18next";
 
 export class Scores extends Component {
     constructor() {
@@ -38,7 +39,7 @@ export class Scores extends Component {
     render() {
         return (
             <div className="scores">
-                <h1 className="scores__title">Sheet Music</h1>
+                <h1 className="scores__title">{t("sheet_music")}</h1>
                 <div className="scores__scoresFlexBox">
                     {this.state.animeData.map((anime) => {
                         return (

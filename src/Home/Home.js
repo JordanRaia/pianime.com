@@ -6,6 +6,7 @@ import "../Background/Background.css";
 import { database } from "../firebase";
 import { onValue, orderByChild, query, ref as ref_database } from "firebase/database";
 import ScoreDisplay from "../Scores/ScoreDisplay";
+import { t } from "i18next";
 
 function useSongData() {
     const [songData, setSongData] = useState();
@@ -38,8 +39,8 @@ function Home() {
         return (
             <>
                 <div className="home">
-                    <Title title="PiAnime" subtitle="Anime Piano Arrangements" />
-                    <div className="home__header">Most Recent Arrangement</div>
+                    <Title title={t("home_title")} subtitle={t("home_subtitle")} />
+                    <div className="home__header">{t("recent_arrangement")}</div>
                     <ScoreDisplay songTitle={songs[songs.length-1].key} />
                 </div>
             </>
