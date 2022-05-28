@@ -1,9 +1,17 @@
 .pdf {
     width: 100%;
-    height: 100%;
+    height: fit-content;
 }
 
-.pdf__object {
-    width: 100%;
-    height: 100%;
+.pdf__details {
+    display: flex;
+    flex-direction: column;
+    /* align-items: center; */
+}
+
+.pdf__pageNum {
+    font-family: "Source Sans Pro", sans-serif;
+    font-size: 1rem;
+    color: white;
+    text-align: center;
 }

@@ -137,9 +137,9 @@ export class RealtimeData extends React.Component {
                                             className="score__youtubePlayer"
                                             src={row.data.youtube}
                                             title="YouTube video player"
-                                            frameborder="0"
+                                            frameBorder="0"
                                             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                                            allowfullscreen="true"
+                                            allowFullScreen={true}
                                         ></iframe>
                                     </div>
                                     <div className="score__well">

@@ -35,36 +35,38 @@ export class App extends Component {
 
     render() {
         return (
-            <Router>
-                <div className="app">
-                    <Routes>
-                        <Route
-                            path="/"
-                            element={[<Header a="home" />, <Home />, <Footer />]}
-                        />
-                        <Route
-                            path="/Sheet%20Music"
-                            element={[<Header a="scores" />, <Scores />, <Footer />]}
-                        />
-                        <Route
-                            path="/Contact"
-                            element={[<Header a="contact" />, <Contact />, <Footer />]}
-                        />
-                        {this.state.tableData.map((row) => {
-                            let routePath = "Sheet%20Music/" + encodeURIComponent(row.key).replace('%26', '&');
-                            return (
-                                <Route
-                                    path={routePath}
-                                    element={[
-                                        <Header a="scores" />,
-                                        <ScoreDisplay songTitle={row.key} />, <Footer />
-                                    ]}
-                                />
-                            );
-                        })};
-                    </Routes>
-                </div>
-            </Router>
+            <div>
+                <Router>
+                    <div className="app">
+                        <Routes>
+                            <Route
+                                path="/"
+                                element={[<Header a="home" />, <Home />, <Footer />]}
+                            />
+                            <Route
+                                path="/Sheet%20Music"
+                                element={[<Header a="scores" />, <Scores />, <Footer />]}
+                            />
+                            <Route
+                                path="/Contact"
+                                element={[<Header a="contact" />, <Contact />, <Footer />]}
+                            />
+                            {this.state.tableData.map((row) => {
+                                let routePath = "Sheet%20Music/" + encodeURIComponent(row.key).replace('%26', '&');
+                                return (
+                                    <Route
+                                        path={routePath}
+                                        element={[
+                                            <Header a="scores" />,
+                                            <ScoreDisplay songTitle={row.key} />, <Footer />
+                                        ]}
+                                    />
+                                );
+                            })};
+                        </Routes>
+                    </div>
+                </Router>
+            </div>
         );
     }
 }
