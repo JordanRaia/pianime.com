@@ -3,15 +3,16 @@ import { getDownloadURL } from "firebase/storage";
 import { Document, Page } from "react-pdf/dist/esm/entry.webpack";
 import styled from "styled-components";
 import { useWindowWidth } from "@wojtekmaj/react-hooks";
-import "./RenderPdf.css";
 import NavigateBeforeIcon from "@mui/icons-material/NavigateBefore";
 import NavigateNextIcon from "@mui/icons-material/NavigateNext";
+import "./RenderPdf.css";
+import BlankPage from "../img/blank_page.jpg";
 
 function RenderPdf({ pdfRef }) {
     const [pageUrl, setPageUrl] = useState("");
     const [numPages, setNumPages] = useState(null);
     const [pageNumber, setPageNumber] = useState(1);
-    const width = useWindowWidth();     //width of screen
+    const width = useWindowWidth(); //width of screen
 
     //set total page num on successfull load of pdf
     function onDocumentLoadSuccess({ numPages }) {
@@ -51,8 +52,28 @@ function RenderPdf({ pdfRef }) {
                 <div className="pdf__documentWrapper">
                     <PDFDocumentWrapper>
                         <Document
-                            loading={""}
-                            noData={""}
+                            loading={
+                                <div>
+                                    <img
+                                        className="pdf__pageElements"
+                                        src={BlankPage}
+                                    ></img>
+                                    <p className="pdf__pageNum">
+                                        Page {pageNumber} of {numPages}
+                                    </p>
+                                </div>
+                            }
+                            noData={
+                                <div>
+                                    <img
+                                        className="pdf__pageElements"
+                                        src={BlankPage}
+                                    ></img>
+                                    <p className="pdf__pageNum">
+                                        Page {pageNumber} of {numPages}
+                                    </p>
+                                </div>
+                            }
                             className="pdf__document"
                             file={pageUrl}
                             onLoadSuccess={onDocumentLoadSuccess}
@@ -70,7 +91,10 @@ function RenderPdf({ pdfRef }) {
                                         disabled={pageNumber > 1 ? false : true}
                                         className="pdf__pageNavButton"
                                     >
-                                        <NavigateBeforeIcon sx={{fontSize: "inherit"}} className="pdf__pageNavIcon" />
+                                        <NavigateBeforeIcon
+                                            sx={{ fontSize: "inherit" }}
+                                            className="pdf__pageNavIcon"
+                                        />
                                     </button>
                                     <div className="pdf__pageNavEmpty"></div>
                                     <button
@@ -80,7 +104,10 @@ function RenderPdf({ pdfRef }) {
                                         }
                                         className="pdf__pageNavButton"
                                     >
-                                        <NavigateNextIcon sx={{fontSize: "inherit"}} className="pdf__pageNavIcon" />
+                                        <NavigateNextIcon
+                                            sx={{ fontSize: "inherit" }}
+                                            className="pdf__pageNavIcon"
+                                        />
                                     </button>
                                 </div>
                             </div>
