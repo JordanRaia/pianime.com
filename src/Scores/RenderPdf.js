@@ -20,7 +20,7 @@ function RenderPdf({ pdfRef }) {
     function changePageBack() {
         setPageNumber((prevPageNumber) => prevPageNumber - 1);
     }
-    
+
     function changePageNext() {
         setPageNumber((prevPageNumber) => prevPageNumber + 1);
     }
@@ -67,7 +67,7 @@ function RenderPdf({ pdfRef }) {
                                         disabled={pageNumber > 1 ? false : true}
                                         className="pdf__pageNavButton"
                                     >
-                                        <NavigateBeforeIcon sx={{fontSize: "150px"}} className="pdf__pageNavIcon" />
+                                        <NavigateBeforeIcon sx={{fontSize: "inherit"}} className="pdf__pageNavIcon" />
                                     </button>
                                     <div className="pdf__pageNavEmpty"></div>
                                     <button
@@ -77,7 +77,7 @@ function RenderPdf({ pdfRef }) {
                                         }
                                         className="pdf__pageNavButton"
                                     >
-                                        <NavigateNextIcon sx={{fontSize: "150px"}} className="pdf__pageNavIcon" />
+                                        <NavigateNextIcon sx={{fontSize: "inherit"}} className="pdf__pageNavIcon" />
                                     </button>
                                 </div>
                             </div>

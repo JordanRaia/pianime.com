@@ -30,6 +30,23 @@
 .pdf__pageNavButton {
     background-color: transparent;
     border: none;
+    font-size: 9.375rem;
+}
+
+@media (max-width: 1280px) and (min-width: 768px) {
+    .pdf__pageNavButton {
+        font-size: 7.5rem;
+    }
+}
+@media (max-width: 768px) and (min-width: 400px) {
+    .pdf__pageNavButton {
+        font-size: 5.62rem;
+    }
+}
+@media (max-width: 400px) {
+    .pdf__pageNavButton {
+        font-size: 3.125rem;
+    }
 }
 
 .pdf__pageNavButton:hover > .pdf__pageNavIcon {
