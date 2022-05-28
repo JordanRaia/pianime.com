@@ -11,16 +11,19 @@ function RenderPdf({ pdfRef }) {
     const [pageUrl, setPageUrl] = useState("");
     const [numPages, setNumPages] = useState(null);
     const [pageNumber, setPageNumber] = useState(1);
-    const width = useWindowWidth();
+    const width = useWindowWidth();     //width of screen
 
+    //set total page num on successfull load of pdf
     function onDocumentLoadSuccess({ numPages }) {
         setNumPages(numPages);
     }
 
+    //back page button removes one from page num
     function changePageBack() {
         setPageNumber((prevPageNumber) => prevPageNumber - 1);
     }
 
+    //next page button adds one to page num
     function changePageNext() {
         setPageNumber((prevPageNumber) => prevPageNumber + 1);
     }
