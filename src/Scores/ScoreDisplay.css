@@ -57,23 +57,12 @@
     border-radius: 10px;
     display: flex;
     margin-bottom: 10px;
+    height: fit-content;
 }
-
-@media (max-width: 1800px){
-    .score__pdfContainer {
-        height: 800px;
-    }
-}
-
-/* @media (min-width: 1800px) {
-    .score__pdfContainer {
-        width: 100%;
-    }
-} */
 
 .score__pdf {
     width: 100%;
-    margin: 10px;
+    margin: 15px;
 }
 
 /* Score info */
@@ -99,7 +88,7 @@
     }
 
     .score__pdfContainer {
-        height: 800px;
+        height: fit-content;
     }
 }
 
@@ -131,7 +120,7 @@
 
 .score__infoSubHeader {
     font-family: "Source Sans Pro", sans-serif;
-    font-size: 12px;
+    font-size: 0.75rem;
     font-weight: 100;
     margin-top: 3px;
 }

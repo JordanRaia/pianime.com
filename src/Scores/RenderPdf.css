@@ -1,9 +1,69 @@
 .pdf {
     width: 100%;
-    height: 100%;
+    height: fit-content;
 }
 
-.pdf__object {
+/* .pdf__details {
+    display: flex;
+    flex-direction: column;
+} */
+
+.pdf__pageNum {
+    font-family: "Source Sans Pro", sans-serif;
+    font-size: 1rem;
+    color: white;
+    text-align: center;
+}
+
+.pdf__pageNavFlexBox {
+    position: absolute;
+    top: 0%;
     width: 100%;
     height: 100%;
+    display: flex;
+}
+
+.pdf__pageNavEmpty {
+    width: 100%;
+}
+
+.pdf__pageNavButton {
+    background-color: transparent;
+    border: none;
+    font-size: 9.375rem;
+}
+
+@media (max-width: 1280px) and (min-width: 768px) {
+    .pdf__pageNavButton {
+        font-size: 7.5rem;
+    }
+}
+@media (max-width: 768px) and (min-width: 400px) {
+    .pdf__pageNavButton {
+        font-size: 5.62rem;
+    }
+}
+@media (max-width: 400px) {
+    .pdf__pageNavButton {
+        font-size: 3.125rem;
+    }
+}
+
+.pdf__pageNavButton:hover > .pdf__pageNavIcon {
+    opacity: 100%;
+    color: #333;
+}
+
+.pdf__pageNavButton:disabled {
+    display: none;
+}
+
+.pdf__pageNavIcon {
+    opacity: 55%;
+    color: gray;
+}
+
+.pdf__pageElements {
+    position: relative;
+    width: 100%;
 }
