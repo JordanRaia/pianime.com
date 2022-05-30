@@ -68,7 +68,7 @@ function Language() {
             >
                 {languages.map(({ code, name, country_code }) => (
                     <a
-                        href="javascript:window.location.href=window.location.href"
+                        href="#"
                         className={
                             code === i18next.language
                                 ? "language__noStyleDisabled"

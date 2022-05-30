@@ -58,7 +58,7 @@ function Home() {
         return (
             <>
                 <link
-                    href="#"
+                    href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@500&display=swap"
                     rel="stylesheet"
                 />
                 <div className="home">
