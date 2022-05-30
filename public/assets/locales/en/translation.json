@@ -1,0 +1,40 @@
+{
+    "home_title": "PiAnime",
+    "home_subtitle": "Anime Piano Arrangements",
+    "recent_arrangement": "Most Recent Arrangement",
+
+    "copyright": "Copyright ",
+    "copyright_name": " PiAnime",
+    "rights_reserved": " All Rights Reserved",
+
+    "home": "home",
+    "sheet_music": "Sheet Music",
+    "requests": "song requests",
+    "beat_saber": "beat saber",
+    "contact": "Contact",
+    "donate": "donate",
+
+    "name_type": "{{name}} - {{type}}",
+ 
+    "youtube_video": "Youtube Video",
+    "sheet_information": "Sheet Information",
+    "published": "Published on {{month}}/{{day}}/{{year}}",
+    "pages": "Pages:",
+    "instrumentation": "Instrumentation:",
+    "category": "Genre:",
+    "title": " Title:",
+    "song_information": "Song Information",
+    "composer": "Composer:",
+    "source_title": "Source Title:",
+    "download": "Download",
+    "page_number": "Page {{page}} of {{total_page}}",
+    "score_info": "{{anime}} {{type}}",
+    "pdf": "{{anime}} - {{name}}.pdf",
+    "midi": "{{anime}} - {{name}}.mid",
+
+    "name": "Name",
+    "email": "Email Address",
+    "subject": "Subject",
+    "message": "Message",
+    "send": "Send Message"
+}

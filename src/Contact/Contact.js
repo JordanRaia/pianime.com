@@ -2,6 +2,7 @@ import React, { useRef, useState } from "react";
 import emailjs from "@emailjs/browser";
 import "./Contact.css";
 import EmailIcon from "@mui/icons-material/Email";
+import { t } from "i18next";
 
 function Contact() {
     const [message, setMessage] = useState("");
@@ -42,7 +43,7 @@ function Contact() {
 
     return (
         <div className="contact">
-            <h1 className="contact__title">Contact</h1>
+            <h1 className="contact__title">{t("contact")}</h1>
             <div className="contact__email">
                 <div className="contact__icon">
                     <EmailIcon />
@@ -57,7 +58,7 @@ function Contact() {
                                 <input
                                     className="contact__inputText"
                                     type="text"
-                                    placeholder="Name"
+                                    placeholder={t("name")}
                                     name="name"
                                 />
                             </div>
@@ -66,7 +67,7 @@ function Contact() {
                                     className="contact__inputText"
                                     type="text"
                                     name="email"
-                                    placeholder="Email Address"
+                                    placeholder={t("email")}
                                 />
                             </div>
                         </div>
@@ -74,7 +75,7 @@ function Contact() {
                             <input
                                 className="contact__inputText"
                                 type="text"
-                                placeholder="Subject"
+                                placeholder={t("subject")}
                                 name="subject"
                             />
                         </div>
@@ -83,7 +84,7 @@ function Contact() {
                                 onChange={(e) => setMessage(e.target.value)}
                                 className="contact__textArea"
                                 name="message"
-                                placeholder="Message"
+                                placeholder={t("message")}
                                 id=""
                                 cols="30"
                                 rows="8"
@@ -93,7 +94,7 @@ function Contact() {
                             <input
                                 className="contact__submit"
                                 type="submit"
-                                value="Send Message"
+                                value={t("send")}
                             />
                         </div>
                     </div>

@@ -7,6 +7,15 @@ import NavigateBeforeIcon from "@mui/icons-material/NavigateBefore";
 import NavigateNextIcon from "@mui/icons-material/NavigateNext";
 import "./RenderPdf.css";
 import BlankPage from "../img/blank_page.jpg";
+import { t } from "i18next";
+
+// styling wrapper for pdf Document
+const PDFDocumentWrapper = styled.div`
+    canvas {
+        width: 100% !important;
+        height: auto !important;
+    }
+`;
 
 function RenderPdf({ pdfRef }) {
     const [pageUrl, setPageUrl] = useState("");
@@ -29,14 +38,6 @@ function RenderPdf({ pdfRef }) {
         setPageNumber((prevPageNumber) => prevPageNumber + 1);
     }
 
-    // styling wrapper for pdf Document
-    const PDFDocumentWrapper = styled.div`
-        canvas {
-            width: 100% !important;
-            height: auto !important;
-        }
-    `;
-
     // get the URL of the pdfRef
     getDownloadURL(pdfRef)
         .then((url) => {
@@ -52,6 +53,18 @@ function RenderPdf({ pdfRef }) {
                 <div className="pdf__documentWrapper">
                     <PDFDocumentWrapper>
                         <Document
+                            error={
+                                <div>
+                                    <img
+                                        className="pdf__pageElements"
+                                        src={BlankPage}
+                                        alt="blank page"
+                                    ></img>
+                                    <p className="pdf__pageNum">
+                                        {t("page_number", {page: pageNumber, total_page: numPages})}
+                                    </p>
+                                </div>
+                            }
                             loading={
                                 <div>
                                     <img
@@ -60,7 +73,7 @@ function RenderPdf({ pdfRef }) {
                                         alt="blank page"
                                     ></img>
                                     <p className="pdf__pageNum">
-                                        Page {pageNumber} of {numPages}
+                                        {t("page_number", {page: pageNumber, total_page: numPages})}
                                     </p>
                                 </div>
                             }
@@ -72,7 +85,7 @@ function RenderPdf({ pdfRef }) {
                                         alt="blank page"
                                     ></img>
                                     <p className="pdf__pageNum">
-                                        Page {pageNumber} of {numPages}
+                                        {t("page_number", {page: pageNumber, total_page: numPages})}
                                     </p>
                                 </div>
                             }
@@ -114,7 +127,7 @@ function RenderPdf({ pdfRef }) {
                                 </div>
                             </div>
                             <p className="pdf__pageNum">
-                                Page {pageNumber} of {numPages}
+                                {t("page_number", {page: pageNumber, total_page: numPages})}
                             </p>
                         </Document>
                     </PDFDocumentWrapper>
