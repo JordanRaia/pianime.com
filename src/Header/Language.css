@@ -1,0 +1,142 @@
+.language__dropdown {
+    position: relative;
+    display: inline-block;
+    z-index: 10;
+}
+
+.language__dropdownHover {
+    display: inline-block;
+    padding: 10px;
+    background-color: transparent;
+    color: white;
+    cursor: pointer;
+    border: none;
+    border-radius: 10px;
+}
+
+.language__dropdownHover:hover {
+    background-color: #111;
+}
+
+.language__dropdownHoverBackground {
+    background-color: #333;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+.language__dropdownMenu {
+    display: none;
+}
+
+.language__dropdownMenu {
+    position: absolute;
+    display: block;
+    top: 100%;
+    right: 0;
+    min-width: 150px;
+    border: 1px solid #333;
+    background: #333;
+    box-shadow: 0 3px 2px rgba(0,0,0,0.3);
+    border-top-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+    animation: growDown 400ms ease-in-out;
+    transform-origin: top center;
+}
+
+.language__dropdownMenuInActive {
+    position: absolute;
+    display: none;
+    top: 100%;
+    right: 0;
+    min-width: 150px;
+    border: 1px solid #333;
+    background: #333;
+    box-shadow: 0 3px 2px rgba(0,0,0,0.3);
+    border-radius: 10px;
+    animation: growDown 400ms ease-in-out;
+    transform-origin: top center;
+}
+
+@media (max-width: 768px) {
+    .language__dropdownMenu {
+        left: 0;
+    }
+}
+
+
+@keyframes growDown {
+    0% {
+        transform: scaleY(0)
+    }
+    80% {
+        transform: scaleY(1.1)
+    }
+    100% {
+        transform: scaleY(1)
+    }
+}
+
+.language__noStyle {
+    text-decoration: none;
+}
+
+.language__noStyleDisabled {
+    text-decoration: none;
+    pointer-events: none;
+}
+
+.language__language {
+    list-style-type: none;
+    padding: 5px;
+}
+
+.language__language:hover {
+    background-color: #111;
+    cursor: pointer;
+}
+
+.language__language:first-child {
+    margin-top: 5px;
+}
+
+.language__language:last-child {
+    margin-bottom: 5px;
+}
+
+.language__button {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    border: none;
+    background-color: transparent;
+    color: white;
+}
+
+.language__button:disabled {
+    color: rgb(111, 107, 107);
+}
+
+.language__button:hover {
+    background-color: #111;
+    cursor: pointer;
+}
+
+.language__languageTexten {
+    font-size: 1.125rem;
+    color: inherit;
+    font-family: "Anton", sans-serif;
+}
+
+.language__languageTextjp {
+    font-size: 1.125rem;
+    color: inherit;
+    font-family: 'Kosugi Maru', sans-serif;
+}
+
+.flag-icon {
+    font-size: 1.5rem;
+}
+
+.language__flag {
+    margin-right: 10px;
+}

@@ -8,7 +8,7 @@ function Footer() {
             <div className="footer__title">{t("home_title")}</div>
             <div className="footer__subtitle">{t("home_subtitle")}</div>
             <p class="footer__copyright">
-                {t("copyright")}&copy;{new Date().getFullYear()}{t("home_title")}{t("rights_reserved")}
+                {t("copyright")}&copy;{new Date().getFullYear()}{t("copyright_name")}{t("rights_reserved")}
             </p>
         </div>
     );

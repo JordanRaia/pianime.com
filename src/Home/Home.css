@@ -16,7 +16,7 @@
     }
 }
 
-.home__header {
+.home__headeren {
     text-align: center;
     font-family: "Anton", sans-serif;
     color: white;
@@ -24,14 +24,30 @@
     font-size: 3rem;
 }
 
+.home__headerjp {
+    text-align: center;
+    font-family: 'Kosugi Maru', sans-serif;
+    color: white;
+    font-weight: 400;
+    font-size: 3rem;
+}
+
 @media (max-width: 1000px) {
-    .home__header {
+    .home__headeren {
+        font-size: 5vw;
+    }
+
+    .home__headerjp {
         font-size: 5vw;
     }
 }
 
 @media (max-width: 768px) {
-    .home__header {
+    .home__headeren {
+        font-size: 6vw;
+    }
+
+    .home__headerjp {
         font-size: 6vw;
     }
 }

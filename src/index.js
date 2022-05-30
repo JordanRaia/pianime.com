@@ -1,27 +1,37 @@
-import React from "react";
+import React, { Suspense } from "react";
 import ReactDOM from "react-dom/client";
-import i18n from "i18next";
-import { useTranslation, initReactI18next } from "react-i18next";
+import i18next from "i18next";
+import { initReactI18next } from "react-i18next";
 import LanguageDetector from "i18next-browser-languagedetector";
 import HttpApi from "i18next-http-backend";
 import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 
-i18n.use(initReactI18next) // passes i18n down to react-i18next
-    .use(LanguageDetector)
+i18next
     .use(HttpApi)
+    .use(LanguageDetector)
+    .use(initReactI18next) // passes i18n down to react-i18next
     .init({
-        supportedLngs: ['en', 'jp'],
+        supportedLngs: ["en", "jp"],
         fallbackLng: "en",
+        debug: false,
         detection: {
-            order: ["path", "cookie", "htmlTag"],
+            order: [
+                "querystring",
+                "cookie",
+                "localStorage",
+                "sessionStorage",
+                "navigator",
+                "htmlTag",
+                "path",
+                "subdomain",
+            ],
             caches: ["cookie"],
         },
         backend: {
             loadPath: "/assets/locales/{{lng}}/translation.json",
         },
-        react: { useSuspense: false }
     });
 
 const root = ReactDOM.createRoot(document.getElementById("root"));

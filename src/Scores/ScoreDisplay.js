@@ -8,7 +8,7 @@ import {
 } from "firebase/storage";
 import { database } from "../firebase.js";
 import RenderPdf from "./RenderPdf";
-import { HashLink as Link } from 'react-router-hash-link';
+import { HashLink as Link } from "react-router-hash-link";
 import DownloadIcon from "@mui/icons-material/Download";
 import LibraryMusicIcon from "@mui/icons-material/LibraryMusic";
 import MusicNoteIcon from "@mui/icons-material/MusicNote";
@@ -18,6 +18,7 @@ import MidiIcon from "../img/MIDI.png";
 import i18next, { t } from "i18next";
 
 var song = undefined;
+var anime = undefined;
 
 // Get a reference to the storage service, which is used to create references in your storage bucket
 const storage = getStorage();
@@ -47,7 +48,7 @@ export class RealtimeData extends React.Component {
     }
 
     componentDidMount() {
-        const songRef = ref_database(database, "scores/" + song);
+        const songRef = ref_database(database, `source/${anime}/${song}/`);
         onValue(songRef, (snapshot) => {
             let records = [];
 
@@ -64,8 +65,8 @@ export class RealtimeData extends React.Component {
             <div className="score">
                 {this.state.songData.map((row) => {
                     // Create a storage reference from our storage service
-                    const pdfRef = ref_storage(storage, `${row.data.pdf}`);
-                    const midiRef = ref_storage(storage, `${row.data.midi}`);
+                    const pdfRef = ref_storage(storage, `${row.data[i18next.language].pdf}`);
+                    const midiRef = ref_storage(storage, `${row.data[i18next.language].midi}`);
 
                     getDownloadURL(pdfRef)
                         .then((url) => {
@@ -77,22 +78,18 @@ export class RealtimeData extends React.Component {
                         });
 
                     let datestr = row.data.date.split(",")[0]; //remove time from date
-                    
+
                     //split date into month, day and year
-                    var split = datestr.split('/');
+                    var split = datestr.split("/");
                     let month = split[0];
                     let day = split[1];
                     let year = split[2];
 
-                    let pdfPath = row.data.pdf.split("/").pop(); //remove folder from path
-
                     let midiExists = false;
 
-                    var midiPath;
                     var midiSize;
                     if (row.data.midi !== "") {
                         midiExists = true;
-                        midiPath = row.data.midi.split("/").pop(); //remove folder form path
                         midiSize = formatBytes(row.data.midiSize);
 
                         getDownloadURL(midiRef)
@@ -116,15 +113,40 @@ export class RealtimeData extends React.Component {
                             />
                             <div className="score__titleSection">
                                 <div className="score__route">
-                                    <Link to={"/Sheet%20Music"}>{t("sheet_music")}</Link>
+                                    <Link to={"/Sheet%20Music"}>
+                                        {t("sheet_music")}
+                                    </Link>
                                     <p> {">"} </p>
-                                    <Link to={"/Sheet%20Music/#" + encodeURIComponent(row.data.anime).replace('%26', '&')}>{row.data.anime}</Link>
+                                    <Link
+                                        to={
+                                            "/Sheet%20Music/#" +
+                                            encodeURIComponent(
+                                                row.data.en.anime
+                                            ).replace("%26", "&")
+                                        }
+                                    >
+                                        {row.data[i18next.language].anime}
+                                    </Link>
                                     <p> {">"} </p>
-                                    <Link to={"/Sheet%20Music/" + encodeURIComponent(row.key).replace('%26', '&')}>{row.key}</Link>
+                                    <Link
+                                        to={
+                                            "/Sheet%20Music/" +
+                                            encodeURIComponent(
+                                                row.data.en.name
+                                            ).replace("%26", "&")
+                                        }
+                                    >
+                                        {row.data[i18next.language].name}
+                                    </Link>
                                 </div>
-                                <h1 className="score__title">{row.key}</h1>
+                                <h1 className="score__title">
+                                    {row.data[i18next.language].name}
+                                </h1>
                                 <h2 className="score__subtitle">
-                                    {row.data.anime} {row.data.type}
+                                    {t("score_info", {
+                                        anime: row.data[i18next.language].anime,
+                                        type: row.data.type,
+                                    })}
                                 </h2>
                             </div>
                             <div className="score__scoreSection">
@@ -160,7 +182,11 @@ export class RealtimeData extends React.Component {
                                                     </h3>
                                                 </div>
                                                 <h3 className="score__infoSubHeader">
-                                                    {t("published", {year: year, month: month, day: day})}
+                                                    {t("published", {
+                                                        year: year,
+                                                        month: month,
+                                                        day: day,
+                                                    })}
                                                 </h3>
                                             </div>
                                             <div className="score__sheetInfoFlexBox">
@@ -175,11 +201,16 @@ export class RealtimeData extends React.Component {
                                                     </li>
                                                     <li className="score__listFlexBox">
                                                         <div className="score__infoKey">
-                                                            {t("instrumentation")}
+                                                            {t(
+                                                                "instrumentation"
+                                                            )}
                                                         </div>
                                                         <div className="score__infoValue">
                                                             {
-                                                                row.data
+                                                                row.data[
+                                                                    i18next
+                                                                        .language
+                                                                ]
                                                                     .instrumentation
                                                             }
                                                         </div>
@@ -189,16 +220,31 @@ export class RealtimeData extends React.Component {
                                                             {t("category")}
                                                         </div>
                                                         <div className="score__infoValue">
-                                                            {row.data.category}
+                                                            {
+                                                                row.data[
+                                                                    i18next
+                                                                        .language
+                                                                ].category
+                                                            }
                                                         </div>
                                                     </li>
                                                     <li className="score__listFlexBox">
                                                         <div className="score__infoKey">
-                                                            {row.data.category}
+                                                            {
+                                                                row.data[
+                                                                    i18next
+                                                                        .language
+                                                                ].category
+                                                            }
                                                             {t("title")}
                                                         </div>
                                                         <div className="score__infoValue">
-                                                            {row.data.anime}
+                                                            {
+                                                                row.data[
+                                                                    i18next
+                                                                        .language
+                                                                ].anime
+                                                            }
                                                         </div>
                                                     </li>
                                                 </ul>
@@ -222,7 +268,12 @@ export class RealtimeData extends React.Component {
                                                             {t("composer")}
                                                         </div>
                                                         <div className="score__infoValue">
-                                                            {row.data.composer}
+                                                            {
+                                                                row.data[
+                                                                    i18next
+                                                                        .language
+                                                                ].composer
+                                                            }
                                                         </div>
                                                     </li>
                                                     <li className="score__listFlexBox">
@@ -230,8 +281,14 @@ export class RealtimeData extends React.Component {
                                                             {t("source_title")}
                                                         </div>
                                                         <div className="score__infoValue">
-                                                            {row.data.anime}{" "}
-                                                            {row.data.type}
+                                                            {t("score_info", {
+                                                                anime: row.data[
+                                                                    i18next
+                                                                        .language
+                                                                ].anime,
+                                                                type: row.data
+                                                                    .type,
+                                                            })}
                                                         </div>
                                                     </li>
                                                 </ul>
@@ -255,7 +312,18 @@ export class RealtimeData extends React.Component {
                                                             href="./"
                                                             className="score__downloadFlexBox"
                                                             id="pdfDownload"
-                                                            download
+                                                            download={t("pdf", {
+                                                                anime: row
+                                                                    .data[
+                                                                    i18next
+                                                                        .language
+                                                                ].anime,
+                                                                name: row
+                                                                    .data[
+                                                                    i18next
+                                                                        .language
+                                                                ].name,
+                                                            })}
                                                         >
                                                             <img
                                                                 className="score__downloadIcon"
@@ -265,7 +333,18 @@ export class RealtimeData extends React.Component {
                                                                 alt="Adobe PDF Icon"
                                                             />
                                                             <div className="score__download">
-                                                                {pdfPath}
+                                                                {t("pdf", {
+                                                                    anime: row
+                                                                        .data[
+                                                                        i18next
+                                                                            .language
+                                                                    ].anime,
+                                                                    name: row
+                                                                        .data[
+                                                                        i18next
+                                                                            .language
+                                                                    ].name,
+                                                                })}
                                                             </div>
                                                             <span className="score__downloadSize">
                                                                 ({pdfSize})
@@ -278,7 +357,18 @@ export class RealtimeData extends React.Component {
                                                                 href="./"
                                                                 className="score__downloadFlexBox"
                                                                 id="midiDownload"
-                                                                download
+                                                                download={t("midi", {
+                                                                    anime: row
+                                                                        .data[
+                                                                        i18next
+                                                                            .language
+                                                                    ].anime,
+                                                                    name: row
+                                                                        .data[
+                                                                        i18next
+                                                                            .language
+                                                                    ].name,
+                                                                })}
                                                             >
                                                                 <img
                                                                     className="score__downloadIcon"
@@ -288,7 +378,18 @@ export class RealtimeData extends React.Component {
                                                                     alt="Adobe PDF Icon"
                                                                 />
                                                                 <div className="score__download">
-                                                                    {midiPath}
+                                                                    {t("midi", {
+                                                                        anime: row
+                                                                            .data[
+                                                                            i18next
+                                                                                .language
+                                                                        ].anime,
+                                                                        name: row
+                                                                            .data[
+                                                                            i18next
+                                                                                .language
+                                                                        ].name,
+                                                                    })}
                                                                 </div>
                                                                 <span className="score__downloadSize">
                                                                     ({midiSize})
@@ -312,8 +413,9 @@ export class RealtimeData extends React.Component {
     }
 }
 
-function ScoreDisplay({ songTitle }) {
+function ScoreDisplay({ songTitle, animeTitle }) {
     song = songTitle;
+    anime = animeTitle;
 
     return (
         <div>

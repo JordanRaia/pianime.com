@@ -4,15 +4,18 @@
     "recent_arrangement": "Most Recent Arrangement",
 
     "copyright": "Copyright ",
+    "copyright_name": " PiAnime",
     "rights_reserved": " All Rights Reserved",
 
     "home": "home",
-    "sheet_music": "sheet music",
+    "sheet_music": "Sheet Music",
     "requests": "song requests",
     "beat_saber": "beat saber",
-    "contact": "contact",
+    "contact": "Contact",
     "donate": "donate",
 
+    "name_type": "{{name}} - {{type}}",
+ 
     "youtube_video": "Youtube Video",
     "sheet_information": "Sheet Information",
     "published": "Published on {{month}}/{{day}}/{{year}}",
@@ -25,6 +28,9 @@
     "source_title": "Source Title:",
     "download": "Download",
     "page_number": "Page {{page}} of {{total_page}}",
+    "score_info": "{{anime}} {{type}}",
+    "pdf": "{{anime}} - {{name}}.pdf",
+    "midi": "{{anime}} - {{name}}.mid",
 
     "name": "Name",
     "email": "Email Address",

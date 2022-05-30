@@ -106,9 +106,16 @@
     background-color: #111;
 }
 
-.header__optionText {
+.header__optionTexten {
     font-size: 1.125rem;
     font-family: "Anton", sans-serif;
+    color: white;
+    text-transform: uppercase;
+}
+
+.header__optionTextjp {
+    font-size: 1.5rem;
+    font-family: 'Kosugi Maru', sans-serif;
     color: white;
     text-transform: uppercase;
 }

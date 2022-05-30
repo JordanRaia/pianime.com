@@ -9,6 +9,14 @@ import "./RenderPdf.css";
 import BlankPage from "../img/blank_page.jpg";
 import { t } from "i18next";
 
+// styling wrapper for pdf Document
+const PDFDocumentWrapper = styled.div`
+    canvas {
+        width: 100% !important;
+        height: auto !important;
+    }
+`;
+
 function RenderPdf({ pdfRef }) {
     const [pageUrl, setPageUrl] = useState("");
     const [numPages, setNumPages] = useState(null);
@@ -29,14 +37,6 @@ function RenderPdf({ pdfRef }) {
     function changePageNext() {
         setPageNumber((prevPageNumber) => prevPageNumber + 1);
     }
-
-    // styling wrapper for pdf Document
-    const PDFDocumentWrapper = styled.div`
-        canvas {
-            width: 100% !important;
-            height: auto !important;
-        }
-    `;
 
     // get the URL of the pdfRef
     getDownloadURL(pdfRef)

@@ -1,13 +1,15 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./Header.css";
 import { Link } from "react-router-dom";
 // import SearchIcon from "@mui/icons-material/Search";
 import Hamburger from "./Hamburger";
 import logo from "../img/logo.png";
-import { t } from "i18next";
+import i18next, { t } from "i18next";
+import Language from "./Language";
 
 function Header({ a }) {
     const [colorChange, setColorchange] = useState(false);
+    const [langaugeButton, setLanguageButton] = useState(true);
 
     const changeNavbarColor = () => {
         if (window.scrollY >= 80) {
@@ -17,7 +19,22 @@ function Header({ a }) {
         }
     };
 
-    window.addEventListener('scroll', changeNavbarColor);
+    window.addEventListener("scroll", changeNavbarColor);
+    var x = window.matchMedia("(max-width: 768px)");
+
+    function visability(x) {
+        if (x.matches) {
+            setLanguageButton(false);
+        } else {
+            setLanguageButton(true);
+        }
+    }
+
+    useEffect(() => {
+        visability(x);
+        x.addEventListener("change", () => {
+            visability(x)});
+    })
 
     var headerOption = [
         "header__option",
@@ -58,15 +75,31 @@ function Header({ a }) {
                     rel="stylesheet"
                     href="https://fonts.googleapis.com/css?family=Anton"
                 />
+                <link
+                    rel="stylesheet"
+                    href="https://fonts.googleapis.com/css2?family=Kosugi+Maru&display=swap"
+                />
                 <Link to={"/"}>
-                    <img className="header__logo" src={logo} alt="PiAnime Logo"/>
+                    <img
+                        className="header__logo"
+                        src={logo}
+                        alt="PiAnime Logo"
+                    />
                 </Link>
                 <div className="header__center">
                     <Hamburger headerOption={headerOption} />
                 </div>
-                <a className="header__link" href="https://www.buymeacoffee.com/PiAnime">
+                {langaugeButton && <Language />}
+                <a
+                    className="header__link"
+                    href="https://www.buymeacoffee.com/PiAnime"
+                >
                     <div className="header__optionDonate">
-                        <div className="header__optionText">{t("donate")}</div>
+                        <div
+                            className={`header__optionText${i18next.language}`}
+                        >
+                            {t("donate")}
+                        </div>
                     </div>
                 </a>
             </div>
