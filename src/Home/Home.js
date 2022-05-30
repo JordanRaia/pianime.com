@@ -37,9 +37,26 @@ function useSongData() {
 function Home() {
     let songs = useSongData();
 
+    var swap = function (x) {
+        return x;
+    };
+
     if (songs) {
         songs.sort(function (a, b) {
-            return a.data.date.localeCompare(b.data.date);
+            //remove time and split into 3 element array
+            a = a.data.date.split(",")[0].split("/");
+            b = b.data.date.split(",")[0].split("/");
+
+            // swap day and month
+            [a[0], a[1]] = [a[1], a[0]];
+            [b[0], b[1]] = [b[1], b[0]];
+
+            //reverse and join to get a string in YYYYMMDD format
+            a = a.reverse().join("");
+            b = b.reverse().join("");
+
+            //return
+            return a.localeCompare(b);
         });
 
         return (

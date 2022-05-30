@@ -42,53 +42,6 @@ function Language() {
 
     }, [isActive]) 
 
-    // window.addEventListener("scroll", function () {
-    //     var y = document.getElementById("hover-background");
-    //     y.style.background = "transparent";
-    // });
-
-    // useEffect(() => {
-    //     const onPageLoad = () => {
-    //         let hovering = document.getElementById("hover");
-
-    //         console.log("loaded");
-    //         hovering.addEventListener(
-    //             "mouseenter",
-    //             function (event) {
-    //                 event.target.style.background = "#111";
-    //             },
-    //             false
-    //         );
-
-    //         hovering.addEventListener(
-    //             "mouseleave",
-    //             function (event) {
-    //                 event.target.style.background = "transparent";
-    //             },
-    //             false
-    //         );
-
-    //         setX(document.getElementById("dropdown"));
-    //     };
-
-    //     // Check if the page has already loaded
-    //     if (document.readyState === "complete") {
-    //         onPageLoad();
-    //     } else {
-    //         window.addEventListener("load", onPageLoad);
-    //         // Remove the event listener when component unmounts
-    //         return () => window.removeEventListener("load", onPageLoad);
-    //     }
-    // }, []);
-
-    // function handleClick() {
-    //     if (x.style.display === "none") {
-    //         x.style.display = "block";
-    //     } else {
-    //         x.style.display = "none";
-    //     }
-    // }
-
     return (
         <div ref={dropdownRef} className="language__dropdown">
             <link
@@ -115,7 +68,7 @@ function Language() {
             >
                 {languages.map(({ code, name, country_code }) => (
                     <a
-                        href=""
+                        href="javascript:window.location.href=window.location.href"
                         className={
                             code === i18next.language
                                 ? "language__noStyleDisabled"
