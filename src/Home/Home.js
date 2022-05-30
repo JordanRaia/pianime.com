@@ -37,10 +37,6 @@ function useSongData() {
 function Home() {
     let songs = useSongData();
 
-    var swap = function (x) {
-        return x;
-    };
-
     if (songs) {
         songs.sort(function (a, b) {
             //remove time and split into 3 element array
