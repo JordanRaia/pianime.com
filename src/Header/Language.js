@@ -4,7 +4,6 @@ import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
 import LanguageIcon from "@mui/icons-material/Language";
 import "./Language.css";
 import "flag-icon-css/css/flag-icons.min.css";
-import { Link } from "react-router-dom";
 
 const languages = [
     {

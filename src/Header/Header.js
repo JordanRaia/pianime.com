@@ -12,7 +12,7 @@ function Header({ a }) {
     const [langaugeButton, setLanguageButton] = useState(true);
 
     const changeNavbarColor = () => {
-        if (window.scrollY >= 80) {
+        if (window.scrollY >= 49) {
             setColorchange(true);
         } else {
             setColorchange(false);
