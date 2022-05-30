@@ -66,7 +66,6 @@ export class RealtimeData extends React.Component {
                 {this.state.songData.map((row) => {
                     // Create a storage reference from our storage service
                     const pdfRef = ref_storage(storage, `${row.data[i18next.language].pdf}`);
-                    const midiRef = ref_storage(storage, `${row.data[i18next.language].midi}`);
 
                     getDownloadURL(pdfRef)
                         .then((url) => {
@@ -88,9 +87,13 @@ export class RealtimeData extends React.Component {
                     let midiExists = false;
 
                     var midiSize;
-                    if (row.data.midi !== "") {
+
+                    if (row.data[i18next.language].midi !== "") {
+                        console.log("got here")
                         midiExists = true;
                         midiSize = formatBytes(row.data.midiSize);
+
+                        const midiRef = ref_storage(storage, `${row.data[i18next.language].midi}`);
 
                         getDownloadURL(midiRef)
                             .then((url) => {
@@ -102,6 +105,7 @@ export class RealtimeData extends React.Component {
                                 console.log(error);
                             });
                     }
+
 
                     let pdfSize = formatBytes(row.data.pdfSize);
 
