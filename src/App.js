@@ -8,9 +8,7 @@ import Contact from "./Contact/Contact";
 import { database } from "./firebase.js";
 import { onValue, ref, query } from "firebase/database";
 import ScoreDisplay from "./Scores/ScoreDisplay";
-// import Search from "./Search/Search";
 import Footer from "./Footer/Footer";
-import { t } from "i18next";
 
 export class App extends Component {
     constructor() {
