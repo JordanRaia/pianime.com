@@ -1,14 +1,14 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import i18next from "i18next";
-import { initReactI18next } from "react-i18next";
+import i18n from "i18next";
+import { I18nextProvider, initReactI18next } from "react-i18next";
 import LanguageDetector from "i18next-browser-languagedetector";
 import HttpApi from "i18next-http-backend";
 import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 
-i18next
+i18n
     .use(HttpApi)
     .use(LanguageDetector)
     .use(initReactI18next) // passes i18n down to react-i18next
@@ -37,7 +37,9 @@ i18next
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
     <React.StrictMode>
-        <App />
+        <I18nextProvider i18n={i18n}>
+            <App />
+        </I18nextProvider>
     </React.StrictMode>
 );
 

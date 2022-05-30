@@ -4,6 +4,7 @@ import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
 import LanguageIcon from "@mui/icons-material/Language";
 import "./Language.css";
 import "flag-icon-css/css/flag-icons.min.css";
+import { Link } from "react-router-dom";
 
 const languages = [
     {
@@ -23,6 +24,11 @@ function Language() {
     const dropdownRef = useRef(null);
 
     const handleClick = () => setIsActive(!isActive);
+
+    function refreshPage(){ 
+        window.location.reload(); 
+        setIsActive(!isActive);
+    }
 
     useEffect(() => {
         const pageClickEvent = (e) => {
@@ -67,8 +73,8 @@ function Language() {
                 }
             >
                 {languages.map(({ code, name, country_code }) => (
-                    <a
-                        href="#"
+                    <button
+                    onClick={ refreshPage }
                         className={
                             code === i18next.language
                                 ? "language__noStyleDisabled"
@@ -98,7 +104,7 @@ function Language() {
                                 </div>
                             </button>
                         </li>
-                    </a>
+                    </button>
                 ))}
             </ul>
         </div>

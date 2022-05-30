@@ -29,7 +29,8 @@
 
 .language__dropdownMenu {
     position: absolute;
-    display: block;
+    display: flex;
+    flex-direction: column;
     top: 100%;
     right: 0;
     min-width: 150px;
@@ -78,11 +79,23 @@
 
 .language__noStyle {
     text-decoration: none;
+    background: none;
+    border: none;
+    padding: 0;
+    color: inherit;
+    cursor: pointer;
+    outline: inherit;
 }
 
 .language__noStyleDisabled {
     text-decoration: none;
     pointer-events: none;
+    background: none;
+    border: none;
+    padding: 0;
+    color: inherit;
+    cursor: pointer;
+    outline: inherit;
 }
 
 .language__language {
