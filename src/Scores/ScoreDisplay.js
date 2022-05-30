@@ -89,7 +89,6 @@ export class RealtimeData extends React.Component {
                     var midiSize;
 
                     if (row.data[i18next.language].midi !== "") {
-                        console.log("got here")
                         midiExists = true;
                         midiSize = formatBytes(row.data.midiSize);
 
